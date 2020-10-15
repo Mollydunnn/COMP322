@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="cordova.js"></script>
+        <script src="js/index.js"></script>
+        <title>Sips and Sounds</title>
+    </head>
+    <body>
+        <div class="app">
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+            <nav>
+                <div id="nav-bar-left">
+                    <a href=#><img src="SearchIcon.png"></a> 
+                </div>
+                <div id="Logo">
+                    <a href=#><img src="LogoTransparent.png"></a> 
+                </div>
+                <div id="nav-bar-right">
+                    <a href="Account.html"><img src="PersonsIconReal.png"></a>
+                </div>
+                <div id="nav-bar-right">
+                    <a href=#><img src="SettingIcon.png"></a> 
+                </div>
+            </nav>
+            <div id="Buttons">
+            <ul>
+                <li>
+                    <!--<img src="css/Number1.png">-->
+                    <a href=#>Start a New Playlist</a>
+                </li>
+                <li>
+                    <!--<img src="Number2.png">-->
+                    <a href=#>Import from Spotify</a>
+                </li>
+                <li>
+                    <!--<img src="Number3.png">-->
+                    <a href=#>Saved Playlists</a>
+                </li>
+                <li>
+                    <!--<img src="Number4.png">-->
+                    <a href="Genre_Select.html">Browse by Genre</a>
+                </li>
+            </ul>
+            </div>
+            
+            <audio controls id="audio" src="js/beep.mp3" ></audio>
+            <!--<audio id="playpls" src="http://www.soundjay.com/button/beep-07.wav"></audio>-->
+
+            <!--<button onclick="playPlease()">Play</button>-->
+
+            <div id="Featured">
+                <ul>
+                    <li>FEATURED</li>
+                    <li><img src="Star.png"></li>
+                </ul>
+            </div>
+            <div id="Playlist">
+            <ul>
+                <li>
+                    <img src="2020HitstoCryto.png">
+                    <a href=#>2020 Hits to Cry to</a>
+                    <h4 id="userName">userName</h4>
+                    <h4 id="userName">Views</h4>
+                </li>
+                <li>
+                    <img src="RetroMix1970s.png">
+                    
+                    <a href=#>Retro Mix 1970s</a>
+                    <h4 id="userName">userName</h4>
+                    <h4 id="userName">Views</h4>
+                </li>
+                <br>
+                <li>
+                    <img src="2000sHitsforGirlsNight.png">
+                    <a href=#>2000s Hits for Girl's Night</a>
+                    <h4 id="userName">userName</h4>
+                    <h4 id="userName">Views</h4>
+                </li>
+                <li>
+                    <img src="FaveAltMix.jpg">
+                    <a href=#>Fave Alternative Mix</a>
+                    <h4 id="userName">userName</h4>
+                    <h4 id="userName">Views</h4>
+                </li>
+            </ul>
+            </div>
+        <script src="cordova.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
