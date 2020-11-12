@@ -14,9 +14,13 @@ body{
     padding:10px 30px;
 }
 button {
-    border:none;
-    background-color:transparent;
+    border: none;
+    background-color:#E92EFB;
     outline:none;
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+    color: white;
  }
 
  .fixbtn {
@@ -58,7 +62,7 @@ h1{
     margin-bottom: 30px;
 }
 
-.loginbox input[type="text"], input[type="password"]
+.loginbox input[type="email"], input[type="password"]
 {
     border: none;
     outline:none;
