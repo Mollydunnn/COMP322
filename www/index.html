@@ -20,17 +20,24 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
         <link rel="stylesheet" href="css/index.css">
         <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
+        
         <title>Sips and Sounds</title>
     </head>
     <body>
+        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+            <script src="js/index.js"></script>
         <div class="app">
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
@@ -44,7 +51,7 @@
                     <a href=#><img src="LogoTransparent.png"></a> 
                 </div>
                 <div id="nav-bar-right">
-                    <a href="Account.html"><img src="PersonsIconReal.png"></a>
+                    <a href="SignUp.html"><img src="PersonsIconReal.png"></a>
                 </div>
                 <div id="nav-bar-right">
                     <a href=#><img src="SettingIcon.png"></a> 
@@ -112,7 +119,5 @@
                 </li>
             </ul>
             </div>
-        <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
     </body>
 </html>

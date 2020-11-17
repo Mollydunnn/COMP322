@@ -3,29 +3,37 @@
     <head>
      <title> Sign Up Page</title>
      <link href= "css/accountstyle.css" rel = "stylesheet" type = "text/css" >
-     <script src="js/index.js"></script>
+     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+     <!--<script src="https://www.gstatic.com/firebasejs/5.0.0/firebase.js"></script>-->
+     <meta>
     </head>
         <body>
+            <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-storage.js"></script>
+            
             <div class= "loginbox">
             <a href="index.html"><button class="fixbtn" type="button">&#x3c</button></a>
             <img src="powerhour.png" height = "120" class ="powerhour">
             <h1></h1>
-        <form>
-            <p>Email</p>
-            <input type= "email" name="" placeholder="Enter Email">
-            <p>Password</p>
-            <input type="password" name="" placeholder="*****************">
-            <p>Confirm Password</p>
-            <input type="password" name="" placeholder="*****************">
-            <a href="#"> Forgot your password?</a> 
-            <button onclick="newUser()">Create Account</button>
-        </form>
-        <h2></h2>
-        <p> Don't have an account? <a href="#"> Sign Up Here</a>
-        </p>
-
-        <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
+            <form>
+                <p>Email</p>
+                <input id= "email" type= "email" placeholder="Enter Email">
+                <p>Password</p>
+                <input id="password" type="password" placeholder="*****************">
+                <button id="logIn" class="btn btn-action">Log In</button>
+                <button id="signUp" class="btn btn-secondary">Sign Up</button>
+                <button id="logOut" class="btn btn-action hide">Log Out</button>
+                <br>
+                <a href="#"> Forgot your password?</a> 
+            </form>
+       
+            <script src="js/index.js"></script>
+        <!--<script src="../platforms/ios/platform_www/cordova.js"></script>-->
+        
         </div>
     </body>
     </html>
