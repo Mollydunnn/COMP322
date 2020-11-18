@@ -1,0 +1,113 @@
+body {
+    background-color: #231F20;
+}
+
+img.logo {
+    position: fixed;
+    left: 50%;
+    top: 2.5%;
+    width: 50%;
+    transform: translate(-50%, 0);
+}
+button {
+    border:none;
+    background-color:transparent;
+    outline:none;
+ }
+div.fixed {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+}
+
+div.top {
+    height: 20%;
+    top: 0;
+    left: 0;
+    background-color: #231F20;
+}
+
+div.bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    bottom: 8%;
+    height: 120px;
+    background-color: #231F20;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='105' viewBox='0 0 80 105'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='death-star' fill='%23373233' fill-opacity='0.4'%3E%3Cpath d='M20 10a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm15 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zM20 75a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zm30-65a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm0 65a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zM35 10a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zM5 45a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zm60 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    color: #c24cf6;
+    font-family: rockwell;
+    font-size: 84px;
+    border-style: solid none solid none;
+    border-width: 15px;
+    border-color: #E92EFB;
+}
+
+.fixbtn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    border: none;
+    color: white;
+    background-color: #E92EFB;
+    font-size: 72px;
+    cursor: pointer;
+    border-radius: 16px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: #231F20;
+    position: absolute;
+    top: 20%;
+    width: 98.4%;
+}
+
+.btn {
+    border: none;
+    color: white;
+    font-family: rockwell;
+    font-size: 36px;
+    cursor: pointer;
+    border-radius: 16px;
+    height: 360px;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-family: rockwell;
+    font-size: 20px;
+}
+
+.hype {
+    background-color: #7fff00;
+    color: black;
+}
+
+.rock {
+    background-color: #0310EA;
+}
+
+.hits {
+    background-color: #FF1493;
+
+}
+
+.rap {
+    background-color: #c24cf6;
+}
+
+.thro {
+    background-color: #FFFF66;
+    color: black;
+}
+
+.ctry {
+    background-color: #fc6e22;
+    color: black;
+}
