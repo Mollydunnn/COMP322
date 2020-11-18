@@ -9,7 +9,11 @@ img.logo {
     width: 50%;
     transform: translate(-50%, 0);
 }
-
+button {
+    border:none;
+    background-color:transparent;
+    outline:none;
+ }
 div.fixed {
     position: fixed;
     width: 100%;
@@ -37,7 +41,7 @@ div.bottom {
     font-size: 84px;
     border-style: solid none solid none;
     border-width: 15px;
-    border-color: #FF1493;
+    border-color: #E92EFB;
 }
 
 .fixbtn {
@@ -46,12 +50,13 @@ div.bottom {
     left: 20px;
     border: none;
     color: white;
-    background-color: #FF1493;
+    background-color: #E92EFB;
     font-size: 72px;
     cursor: pointer;
     border-radius: 16px;
     width: 100px;
     height: 100px;
+    text-align: center;
 }
 
 .grid-container {
@@ -71,6 +76,12 @@ div.bottom {
     cursor: pointer;
     border-radius: 16px;
     height: 360px;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-family: rockwell;
+    font-size: 20px;
 }
 
 .hype {
