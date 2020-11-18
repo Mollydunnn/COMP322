@@ -28,83 +28,63 @@ function onDeviceReady() {
     document.getElementById('deviceready').classList.add('ready');
 }*/
   // Your web app's Firebase configuration
-  var config = {
-    apiKey: "AIzaSyAMAJd3prCsJjPkR6xcSiv5EB7jSFLLu48",
-    authDomain: "comp322-jmkek.firebaseapp.com",
-    databaseURL: "https://comp322-jmkek.firebaseio.com",
-    projectId: "comp322-jmkek",
-    storageBucket: "comp322-jmkek.appspot.com",
-    messagingSenderId: "904116987452",
-    appId: "1:904116987452:web:cb9975b4e0a2ac2fd54539"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(config);
-  var rootRef = firebase.database().ref();
-  const storageRef = firebase.storage().ref();
-  const txtemail = document.getElementById('email');
-  const txtpassword = document.getElementById('password');
-  const btnlogIn = document.getElementById('logIn');
-  const btnsignUp = document.getElementById('signUp');
-  const btnlogOut = document.getElementById('logOut');
+(function(){
+    const config = {
+        apiKey: "AIzaSyAMAJd3prCsJjPkR6xcSiv5EB7jSFLLu48",
+        authDomain: "comp322-jmkek.firebaseapp.com",
+        databaseURL: "https://comp322-jmkek.firebaseio.com",
+        projectId: "comp322-jmkek",
+        storageBucket: "comp322-jmkek.appspot.com",
+        messagingSenderId: "904116987452",
+        appId: "1:904116987452:web:cb9975b4e0a2ac2fd54539"
+      };
+      firebase.initializeApp(config);
+      const rootRef = firebase.database().ref();
+      const storageRef = firebase.storage().ref();
+      const txtEmail = document.getElementById('txtEmail');
+      const txtPassword = document.getElementById('txtPassword');
+      const btnLogIn = document.getElementById('btnLogIn');
+      const btnSignUp = document.getElementById('btnSignUp');
+      const btnLogOut = document.getElementById('btnLogOut');
+    
+      //here(all below are user authentication functions)
+    btnLogIn.addEventListener('click', e=> {
+        const email = txtEmail.value;
+        const password = txtPassword.value;
+        const auth = firebase.auth();
+        const promise = auth.signInWithEmailAndPassword(email, password);
+        promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
+        document.getElementById('txtEmail').value = '';
+        document.getElementById('txtPassword').value = '';
+    });
 
-//Don't know below stuff to....
-/*function playAudio() {
-    //initial url relative to WWW directory - then built for Android
-    var $audioURL = buildURL("media/audio/egypt.mp3");
-    var $audio = new Media($audioURL, null, errorReport);
-    $audio.play();
-    alert("playing audio...have fun!");
-    }
-    //build url for android
-function buildURL(file) {
-    if (device.platform.toLowerCase() === "android") {
-    var $androidFile = "/android_asset/www/" + file;
-    return $androidFile;
-    }
-    }
-    //return any error message from media playback
-function errorReport(error) {
-    alert("Error with Audio - " + JSON.stringify(error));
-    }
-*/
+    btnSignUp.addEventListener('click', e=> {
+        const email = txtEmail.value;
+        const password = txtPassword.value;
+        const auth = firebase.auth();
+        const promise = auth.createUserWithEmailAndPassword(email, password); //send it off to firebase authentication
+        promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
+        document.getElementById('txtEmail').value = '';
+        document.getElementById('txtPassword').value = '';
+    });
 
+    btnLogOut.addEventListener('click', e=>{
+        firebase.auth().signOut();
+    });
 
-//here(all below are user authentication functions)
-btnlogIn.addEventListener('click', e=> {
-    const email = txtemail.value;
-    const password = txtpassword.value; 
-    const auth = firebase.auth();
-    const promise = auth.signInWithEmailAndPassword(email, password); //send it off to firebase authentication
-    promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
-});
-
-btnsignUp.addEventListener('click', e=> {
-    //TODO: CHECK FOR A REAL EMAIL
-    const email = txtemail.value;
-    const password = txtpassword.value; 
-    const auth = firebase.auth();
-    const promise = auth.createUserWithEmailAndPassword(email, password); //send it off to firebase authentication
-    promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
-});
-
-firebase.auth().onAuthStateChanged(firebaseUser =>{
-    if(firebaseUser){
-        console.log(firebaseUser);
-        btnlogOut.remove('hide');
-    } else{
-        console.log("User has not signed up.");
-        btnlogOut.classList.add('hide');
-    }
-});
-
-btnlogOut.addEventListener('click', e=>{
-    firebase.auth().signOut();
-});
+    firebase.auth().onAuthStateChanged(firebaseUser =>{
+        if(firebaseUser){
+            console.log(firebaseUser);
+            console.log("User is logged in successfully.");
+            //btnlogOut.remove('hide');
+        } else{
+            console.log("User is not logged in.");
+            //btnlogOut.classList.add('hide');
+        }
+    });
+/*
+    
 //THis is the the function to keep track of the users and to modify 
 //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
-
-
-function playPlease(){
-    var audio = document.getElementById("audio");
-    audio.play();
-}
+*/
+}());
