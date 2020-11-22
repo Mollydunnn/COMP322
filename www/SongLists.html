@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="css/SongLists.css">
+    <title>Sips and Sounds</title>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Secular+One&family=Titillium+Web&display=swap');</style>
+</head>
+
+<body>
+    <div class="app">
+        <h1>Apache Cordova</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div>
+    <nav>
+        <div id="nav-bar-left">
+            <a href=#><img src="SearchIcon.png"></a>
+        </div>
+        <div id="Logo">
+            <a href=#><img src="LogoTransparent.png"></a>
+        </div>
+        <div id="nav-bar-right">
+            <a href="Account.html"><img src="PersonsIconReal.png"></a>
+        </div>
+        <div id="nav-bar-right">
+            <a href=#><img src="SettingIcon.png"></a>
+        </div>
+    </nav>
+
+    <a href="index.html"><button class="fixbtn" type="button">&#x3c</button></a>
+</body>
+
+
+
+<!--
+<script>
+//Returns the name of the playlist
+function playlistName() {
+    // name = <fetch from database>
+    // return name
+}
+
+//Returns a list of songs for the playlist
+function generateList() {
+    createSongList(array);
+}
+</script>
+
+<h1 onload="playlistName()"></h1>
+<div onload="generateList()"></div>
+-->
+<div class="Songs">
+    <h2>Playlist Name</h2>
+    <ul>
+        <li>
+            <img src="monkeys.png">
+            <h3>Song 1</h3>
+            <button type="button">></button>
+            <p>by Artist 1</p>
+        </li>
+        <li>
+            <img src="records.png">
+            <h3>Song 2</h3>
+            <button type="button">></button>
+            <p>by Artist 2</p>
+        </li>
+    </ul>
+</div>
+
+
+</html>
