@@ -82,9 +82,41 @@ function onDeviceReady() {
             //btnlogOut.classList.add('hide');
         }
     });
+
 /*
     
 //THis is the the function to keep track of the users and to modify 
 //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
 */
 }());
+
+//This function is for fetching the PopPlaylist and its associated songs
+function getPopPlaylist() {
+    var songData=[];
+    firebase.database().ref("/Playlists/PopPlaylist").on('value', function(snap) {
+        snap.forEach(function(childNodes) {
+            songData.append(childNodes.val().Name); //song name
+            songData.append(childNodes.val().Artist); //artist name
+            songData.append(childNodes.val().Image); //image file string
+            songData.append(childNodes.val().Song); //mp3 file string
+        });
+        
+    });
+    return songData; //returns the list to be used in the getSongs function
+}
+
+//Function to be used to generate HTML elements
+function createSongList(songs) {
+    document.createElement('h2').createTextNode("Today's Pop Hits");
+    var songList = document.createElement('ul');
+    // 0=name, 1=artist, 2=image, 3=mp3
+    for (var i=0; i<songs.length; i+=4) { //increment in 4s
+        var list_item = document.createElement('li');
+        list_item.appendChild(document.createElement('img').createTextNode(songs[i+2])); //image url in img element
+        list_item.appendChild(document.createElement('h3').createTextNode(songs[i])); //song name in h3 element
+        list_item.appendChild(document.createElement('button')); //needs to play the sound
+        list_item.appendChild(document.createElement('p').createTextNode(songs[i+1])); //artist name in p element
+        item.appendChild(list_item); //adds this list item to the ul element
+    }
+    return songList; //returns ul element, containing all list items as children
+}

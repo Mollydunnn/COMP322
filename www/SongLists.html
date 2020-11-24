@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="css/SongLists.css">
     <title>Sips and Sounds</title>
     <style>@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Secular+One&family=Titillium+Web&display=swap');</style>
+    <script>
+
+    </script>
 </head>
 
 <body>
@@ -56,7 +59,7 @@ function generateList() {
 
 <h1 onload="playlistName()"></h1>
 <div onload="generateList()"></div>
--->
+
 <div class="Songs">
     <h2>Playlist Name</h2>
     <ul>
@@ -74,6 +77,12 @@ function generateList() {
         </li>
     </ul>
 </div>
+-->
 
+<script>
+    songs=getPopPlaylist();
+</script>
+
+<div class="Songs" onload="createSongList(songs)"></div>
 
 </html>
