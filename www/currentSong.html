@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' ; script-src 'unsafe-inline' * ; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="css/Playlists.css">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Current Song</title>
+    
+</head>
+<body>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+            <script src="js/index.js"></script>
+            <script>
+                  var ref = firebase.database.ref('Playlists').orderByChild("Number");
+                    ref.on('value', function(snapshot){
+                    snapshot.forEach(function(childSnapshot) {
+                    let currentSong= snapshot.val();   
+                    console.log(currentSong);
+                    })});
+              </script>
+              <!--<script>
+                  database.ref('users/'+Number).once('value').then(function(snapshot) {
+                    var prospectId = snapshot.key ;
+                    snapshot.forEach(function(snapshot1) {
+                console.log(snapshot1.key); // e.g. "http://..."
+                snapshot.forEach(function(snapshot2) {
+                console.log(childSnapshot.key); // e.g. "20170116"
+                childSnapshot.forEach(function(snapshot3) {
+                console.log(grandchildSnapshot.key); // e.g. "-Kb9...gkE"
+                console.log(grandchildSnapshot.val().districtId); // "pne"
+                    });
+                });
+  });
+});
+              </script>-->
+    <div class="app">
+        <h1>Apache Cordova</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div>
+    <nav>
+        <div id="nav-bar-left">
+            <a href=#><img src="SearchIcon.png"></a>
+        </div>
+        <div id="Logo">
+            <a href=#><img src="LogoTransparent.png"></a>
+        </div>
+        <div id="nav-bar-right">
+            <a href="Account.html"><img src="PersonsIconReal.png"></a>
+        </div>
+        <div id="nav-bar-right">
+            <a href=#><img src="SettingIcon.png"></a>
+        </div>
+    </nav>
+    <div id="current-song-container">
+    <div id= "CurrentSong">
+        <img src= "2020HitstoCryto.png">
+        <h4 id= "song">Say So (ft. Nicki Minaj)</h4>
+        <h5 id= "artist"> Doja Cat, Nicki Minaj</h5>
+        <audio controls id="audio" src="js/beep.mp3" ></audio>
+        <h4 id="songNo">Song No.</h4>
+        <h4 id="songNumber">#</h4>
+        <span id="time">1:00</span>
+        <h4 id="drinkCount">Drink Count</h4>
+        <h4 id="drinkCountNumber">#</h4> 
+    </div>
+
+</div>
+    <script src="cordova.js"></script>
+    
+</body>
+</html>
