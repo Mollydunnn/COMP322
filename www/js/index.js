@@ -39,6 +39,7 @@ function onDeviceReady() {
         appId: "1:904116987452:web:cb9975b4e0a2ac2fd54539"
       };
       firebase.initializeApp(config);
+      const database = firebase.database();
       const rootRef = firebase.database().ref();
       const storageRef = firebase.storage().ref();
       const txtEmail = document.getElementById('txtEmail');
@@ -82,9 +83,56 @@ function onDeviceReady() {
             //btnlogOut.classList.add('hide');
         }
     });
-/*
-    
+
+    /*function startTimer(duration, display) {
+    var timer;
+    timer = duration;
+    var minutes, seconds;
+    setInterval(function () {
+        seconds = parseInt(timer % 60, 10);
+
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}*/
+
+
+
+
 //THis is the the function to keep track of the users and to modify 
 //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
-*/
-}());
+
+});
+document.addEventListener("deviceready", function() {
+    var oneMinute = 60;
+    display = document.querySelector('#time');
+    startTimer(oneMinute, display);
+}, false);
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+   
+}
+
+/*function currentlyPlaying(){
+    let ele = document.getElementById("product-page-container");
+    ele.innerHTML = ``
+}*/
