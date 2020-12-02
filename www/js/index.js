@@ -140,10 +140,10 @@ function getPopPlaylist() {
     var songData=[];
     firebase.database().ref("/Playlists/PopPlaylist").on('value', function(snap) {
         snap.forEach(function(childNodes) {
-            songData.append(childNodes.val().Name); //song name
-            songData.append(childNodes.val().Artist); //artist name
-            songData.append(childNodes.val().Image); //image file string
-            songData.append(childNodes.val().Song); //mp3 file string
+            songData.push(childNodes.val().Name); //song name
+            songData.push(childNodes.val().Artist); //artist name
+            songData.push(childNodes.val().Image); //image file string
+            songData.push(childNodes.val().Song); //mp3 file string
         });
         
     });

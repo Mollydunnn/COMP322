@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' *; media-src *; img-src *; script-src 'unsafe-inline' *;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -22,6 +22,7 @@
          https://firebase.google.com/docs/web/setup#available-libraries -->
             <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
             <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+            <script src="js/index.js"></script>
     <div class="app">
         <h1>Apache Cordova</h1>
         <div id="deviceready" class="blink">
@@ -37,7 +38,7 @@
             <a href="index.html"><img id="mylogo"></a>
         </div>
         <div id="nav-bar-right">
-            <a href="Account.html"><img src="img/PersonsIconReal.png"></a>
+            <a href="LogIn.html"><img src="img/PersonsIconReal.png"></a>
         </div>
         <div id="nav-bar-right">
             <a href=#><img src="img/SettingIcon.png"></a>
@@ -86,6 +87,7 @@ function generateList() {
 -->
 
 <script>
+    var songs;
     songs=getPopPlaylist();
 </script>
 
