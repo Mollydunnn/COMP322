@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "904116987452",
+    "firebase_url": "https://comp322-jmkek.firebaseio.com",
+    "project_id": "comp322-jmkek",
+    "storage_bucket": "comp322-jmkek.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904116987452:android:961da1d939bb1ff3d54539",
+        "android_client_info": {
+          "package_name": "com.comp322.SipsAndSounds"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904116987452-kdsvsp45b6fh5kdip3490s1t9vnrbaf4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfTeYpSI46LWxrnjURShOj7DLmKtRfDSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904116987452-kdsvsp45b6fh5kdip3490s1t9vnrbaf4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
