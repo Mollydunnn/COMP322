@@ -39,8 +39,8 @@ function onDeviceReady() {
         appId: "1:904116987452:web:cb9975b4e0a2ac2fd54539"
       };
       firebase.initializeApp(config);
-      const database = firebase.database();
-      const rootRef = firebase.database().ref();
+      //const database = firebase.database();
+      //const rootRef = firebase.database().ref();
       const storageRef = firebase.storage().ref();
       const txtEmail = document.getElementById('txtEmail');
       const txtPassword = document.getElementById('txtPassword');
@@ -54,7 +54,7 @@ function onDeviceReady() {
         const password = txtPassword.value;
         const auth = firebase.auth();
         const promise = auth.signInWithEmailAndPassword(email, password);
-        promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
+        //promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
         document.getElementById('txtEmail').value = '';
         document.getElementById('txtPassword').value = '';
     });
@@ -64,7 +64,7 @@ function onDeviceReady() {
         const password = txtPassword.value;
         const auth = firebase.auth();
         const promise = auth.createUserWithEmailAndPassword(email, password); //send it off to firebase authentication
-        promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
+        //promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
         document.getElementById('txtEmail').value = '';
         document.getElementById('txtPassword').value = '';
     });
@@ -75,11 +75,11 @@ function onDeviceReady() {
 
     firebase.auth().onAuthStateChanged(firebaseUser =>{
         if(firebaseUser){
-            console.log(firebaseUser);
-            console.log("User is logged in successfully.");
+            //console.log(firebaseUser);
+            //console.log("User is logged in successfully.");
             //btnlogOut.remove('hide');
         } else{
-            console.log("User is not logged in.");
+            //console.log("User is not logged in.");
             //btnlogOut.classList.add('hide');
         }
     });
@@ -131,6 +131,7 @@ function startTimer(duration, display) {
 
 
 //This function is for fetching the PopPlaylist and its associated songs
+/*
 function getPopPlaylist() {
     /*
     firebase.database().ref("/Playlists/PopPlaylist").on('value', function(snap) {
@@ -177,3 +178,4 @@ function createSongList(songs) {
     }
     return songList; //returns ul element, containing all list items as children
 }
+*/
