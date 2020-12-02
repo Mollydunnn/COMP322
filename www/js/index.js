@@ -39,6 +39,7 @@ function onDeviceReady() {
         appId: "1:904116987452:web:cb9975b4e0a2ac2fd54539"
       };
       firebase.initializeApp(config);
+      const database = firebase.database();
       const rootRef = firebase.database().ref();
       const storageRef = firebase.storage().ref();
       const txtEmail = document.getElementById('txtEmail');
@@ -46,7 +47,7 @@ function onDeviceReady() {
       const btnLogIn = document.getElementById('btnLogIn');
       const btnSignUp = document.getElementById('btnSignUp');
       const btnLogOut = document.getElementById('btnLogOut');
-    
+
       //here(all below are user authentication functions)
     btnLogIn.addEventListener('click', e=> {
         const email = txtEmail.value;
@@ -83,26 +84,82 @@ function onDeviceReady() {
         }
     });
 
+
+
+//THis is the the function to keep track of the users and to modify 
+//ensures the user is saved as a user when they sign up and confirms when they log in that they exist
+
+}());
+/*storageRef.child('img/LogoTransparent.png').getDownloadURL().then(function(url) {
+    var img = document.getElementById('mylogo');
+    img.src = url;
+}, function(error) {});*/
+
+document.addEventListener("deviceready", function() {
+    var oneMinute = 60;
+    display = document.querySelector('#time');
+    startTimer(oneMinute, display);
+}, false);
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+   
+}
+
+/*function currentlyPlaying(){
+    let ele = document.getElementById("product-page-container");
+    ele.innerHTML = ``
+}*/
 /*
     
 //THis is the the function to keep track of the users and to modify 
 //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
 */
-}());
+
 
 //This function is for fetching the PopPlaylist and its associated songs
 function getPopPlaylist() {
-    var songData=[];
+    /*
     firebase.database().ref("/Playlists/PopPlaylist").on('value', function(snap) {
         snap.forEach(function(childNodes) {
-            songData.append(childNodes.val().Name); //song name
-            songData.append(childNodes.val().Artist); //artist name
-            songData.append(childNodes.val().Image); //image file string
-            songData.append(childNodes.val().Song); //mp3 file string
+            songData.push(childNodes.val().Name); //song name
+            songData.push(childNodes.val().Artist); //artist name
+            songData.push(childNodes.val().Image); //image file string
+            songData.push(childNodes.val().Song); //mp3 file string
         });
-        
-    });
+    }); 
     return songData; //returns the list to be used in the getSongs function
+    */
+    var ref = firebase.database().ref("PopPlaylist").orderByKey();
+    ref.once("value").then(function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            var key = childSnapshot.key;
+            var songData = childSnapshot.val();
+            
+            var song_name = childSnapshot.val().Name;
+            var artist_name = childSnapshot.val().Artist;
+            var image_str = childSnapshot.val().Image;
+            var mp3_str = childSnapshot.val().Song;
+
+            $("#song_name").append("<h3>"+song_name+"</h3>");
+            $("#artist_name").append("<p>"+artist_name+"</p>");
+            $("#image_str").append("<img src='"+image_str+"'>");
+            $("#mp3_str").append(mp3_str);
+        });
+    });
 }
 
 //Function to be used to generate HTML elements
@@ -112,7 +169,7 @@ function createSongList(songs) {
     // 0=name, 1=artist, 2=image, 3=mp3
     for (var i=0; i<songs.length; i+=4) { //increment in 4s
         var list_item = document.createElement('li');
-        list_item.appendChild(document.createElement('img').createTextNode(songs[i+2])); //image url in img element
+        list_item.appendChild(document.createElement('img').createTextNode('songs/'+songs[i+2])); //image url in img element
         list_item.appendChild(document.createElement('h3').createTextNode(songs[i])); //song name in h3 element
         list_item.appendChild(document.createElement('button')); //needs to play the sound
         list_item.appendChild(document.createElement('p').createTextNode(songs[i+1])); //artist name in p element

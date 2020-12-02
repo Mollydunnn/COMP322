@@ -2,8 +2,8 @@
 <html>
     <head>
      <title> Sign Up Page</title>
-     <link href= "css/accountstyle.css" rel = "stylesheet" type = "text/css" >
-     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+     <link href= "css/index.css" rel = "stylesheet" type = "text/css" >
+     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src *;">
      <!--<script src="https://www.gstatic.com/firebasejs/5.0.0/firebase.js"></script>-->
      <meta>
     </head>
@@ -16,8 +16,18 @@
             <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-storage.js"></script>
             
             <div class = "nav">
-            <a href="index.html"><button onclick= "location.href='index.html'">&#x3c</button></a>
-            <img src="LogoTransparent.png">
+            <nav>
+                <div id="nav-bar-left">
+                    <a href=#><img src="img/SearchIcon.png"></a>
+                </div>
+                <div id="Logo">
+                    <a href="index.html"><img src="img/LogoTransparent.png"></a> 
+                </div>
+                <div id="nav-bar-right">
+                    <a href="SignUp.html"><img src="img/PersonsIconReal.png"></a>
+                </div>
+                
+            </nav>
         </div>
            <br>
             <div class="container">
@@ -28,14 +38,12 @@
                 <button id="btnLogIn">Log In</button>
                 <button id="btnSignUp">Sign Up</button>
                 <button id="btnLogOut">Log Out</button>
-                <!--<br>
-                <a href="#"> Forgot your password?</a> -->
+                
             </div>
        
-            <script src="js/index.js"></script>
         <!--<script src="../platforms/ios/platform_www/cordova.js"></script>-->
         
-  
+        <script src="js/index.js"></script>
         </body>
     </html>
 

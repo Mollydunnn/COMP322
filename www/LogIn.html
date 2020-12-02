@@ -2,21 +2,37 @@
 <html>
     <head>
      <title> Sign In Page</title>
-     <link href= "css/accountstyle.css" rel = "stylesheet" type = "text/css" >
-     <script src="js/index.js"></script>
+     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' ; script-src 'unsafe-inline' * ; media-src *; img-src *;">
+     <link href= "css/index.css" rel = "stylesheet" type = "text/css" >
     </head>
         <body>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+            <nav>
+                <div id="nav-bar-left">
+                    <a href=#><img src="img/SearchIcon.png"></a>
+                </div>
+                <div id="Logo">
+                    <a href="index.html"><img src="img/LogoTransparent.png"></a> 
+                </div>
+                <div id="nav-bar-right">
+                    <a href="SignUp.html"><img src="img/PersonsIconReal.png"></a>
+                </div>
+            </nav>
             <div class= "loginbox">
             <a href="index.html"><button class="fixbtn" type="button">&#x3c</button></a>
-            <img src="powerhour.png" height = "120" class ="powerhour">
-            <h1></h1>
+            
         <form>
             <p> Email</p>
             <input type= "email" name="" placeholder="Enter Email">
             <p>Password</p>
             <input type="password" name="" placeholder="Enter Password">
             <a href="#"> Forgot your password?</a> 
-            <button onclick="logIn()">Log In</button>
+            <button id="btnLogIn" onclick="logIn()">Log In</button>
         </form>
         <h2></h2>
         <p> Don't have an account? <a href="SignUp.html"> Sign Up Here</a>
@@ -24,7 +40,7 @@
         </p>
 
         <script src="cordova.js"></script>
-        <script src="script.js"></script>
+        <script src="js/index.js"></script>
         </div>
     </body>
     </html>

@@ -29,17 +29,24 @@
         * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
             * Enable inline JS: add 'unsafe-inline' to default-src
     -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' ; script-src 'unsafe-inline' * ; media-src *; img-src *;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
-    <link rel="stylesheet" href="css/Playlists.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>Sips and Sounds</title>
     <style>@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Secular+One&family=Titillium+Web&display=swap');</style>
 
 </head>
 <body>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+            <script src="js/index.js"></script>
 <div class="app">
     <h1>Apache Cordova</h1>
     <div id="deviceready" class="blink">
@@ -50,42 +57,39 @@
 
 <nav>
     <div id="nav-bar-left">
-        <a href=#><img src="SearchIcon.png"></a>
+        <a href=#><img src="img/SearchIcon.png"></a>
     </div>
     <div id="Logo">
-        <a href=#><img src="LogoTransparent.png"></a>
+        <a href="index.html"><img id="mylogo"></a>
     </div>
     <div id="nav-bar-right">
-        <a href="Account.html"><img src="PersonsIconReal.png"></a>
+        <a href="LogIn.html"><img src="img/PersonsIconReal.png"></a>
     </div>
     <div id="nav-bar-right">
-        <a href=#><img src="SettingIcon.png"></a>
+        <a href=#><img src="img/SettingIcon.png"></a>
     </div>
 </nav>
-</body>
-
-<a href="index.html"><button class="fixbtn" type="button">&#x3c</button></a>
 
 <div class="Playlist">
         <h1>ALTERNATIVE</h1>
     <ul>
         <li>
-            <img alt="alt1" src="records.png">
+            <img alt="alt1" src="img/records.png">
             <p>100 Top Hits: Alternative</p>
             <button type="button" class="playButton">PLAY</button>
         </li>
         <li>
-            <img alt="alt2" src="2000s_alt.png">
+            <img alt="alt2" src="img/2000s_alt.png">
             <p>2000s Alternative Rock</p>
             <button type="button" class="playButton">PLAY</button>
         </li>
         <li>
-            <img alt="alt3" src="90s_alt.png">
+            <img alt="alt3" src="img/90s_alt.png">
             <p>90s Alternative Rock</p>
             <button type="button" class="playButton">PLAY</button>
         </li>
         <li>
-            <img alt="alt4" src="monkeys.png">
+            <img alt="alt4" src="img/monkeys.png">
             <p>Best Of: Arctic Monkeys</p>
             <button type="button" class="playButton">PLAY</button>
         </li>
@@ -93,6 +97,5 @@
 </div>
 
 <script src="cordova.js"></script>
-<script src="js/index.js"></script>
-
+</body>
 </html>

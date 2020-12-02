@@ -42,6 +42,8 @@ body {
     background-color: #000000;
     margin:0px;
     padding:0px;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -67,13 +69,13 @@ h1 {
 audio{
    color: #E92EFB;
 }
-.event {
-    border-radius:4px;
-    color:#000000;
-    font-size:12px;
-    margin:0px 30px;
-    padding:2px 0px;
+button {
+    border:none;
+    background-color:transparent;
+    outline:none;
+    color: white;
 }
+
 
 .event.listening {
     background-color:#000000;
@@ -88,16 +90,6 @@ audio{
 #deviceready.ready .event.listening { display: none; }
 #deviceready.ready .event.received { display: block; }
 
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
-
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
-}
 
 
 nav{
@@ -114,16 +106,23 @@ nav a{
   }
 
 #nav-bar-left{
+    padding-top:1%;
     width: 25%;
 }
-#Logo{
+.Logo{
     width: 50%;
     height: auto;
 
 }
+#mylogo{
+    width: 9.5%;
+    padding-top:0px;
+    margin-top:0px;
+}
+
 #nav-bar-right{
+    padding-top:1%;
     width: 25%;
-    padding-right:10px;
 }
 #nav-bar-left img{
     height: auto;/*may need to fix this height*/
@@ -139,60 +138,29 @@ nav a{
     padding:4px;
     background: #E92EFB;
 }
-#Logo img{
-    width: 80%;
-    text-align: center;
-}
-/*#Logo{
-    background-image: url("logo.jpg");
-    box-shadow: 0 0 0 1pt #000000;
-    width: 50%;
-    padding-top: 0px;
-    min-width: 50%;
-    margin: auto;
-    background-position: center;
-    height: auto;
-    background-repeat: no-repeat;
-    text-align:center;
-}*/
-
-/*#Logo ul{
-    width:50%;
-    height: auto;
-}
-nav ul{
-    list-style: none;
-    width: 100%;
-}*/
-/*nav ul li{
-    width: 25%;
-    list-style-type: none;
-    display: inline-block;
-    width: auto;
-    text-align:center;
-    margin-right: 3em;
-}*/
 
 
 
 
 #Buttons{
     width: 100%;
+    height: 55%;
     text-align: center;
 }
 #Buttons ul li{
+    height: 12%;
     list-style-type: none;
     padding-right: 50px;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
+    text-align: center;
 }
 
 #Buttons ul li a{
     text-decoration: none;
     padding: 4px;
     padding-bottom: 7px;
-    font-family: 'Courier New', monospace;
     font-weight: bolder;
-    font-size: 18px;
+    font-size: 23px;
     color: white;
     background-color: #E92EFB;
     text-align: center;
@@ -279,179 +247,398 @@ nav ul{
     color: white;
 }
 
+#CurrentSong{
+    color:white;
+    font-size: 20px;
+    text-align:center;
+    width: 100%;
+}
+#CurrentSong img{
+    width: 80%;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-/*nav{
+.container{
+    width:100%;
+    height: auto;
+    color: #E92EFB;
+}
+.container p{
+   margin-left: 45%;
+}
+.container button {
+    border: none;
+    background-color:white;
+    outline:none;
+    width: 50%;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    margin-bottom: 30px;
+    border-radius: 5%;
+ }
+
+ .nav {
+    width: 100%;
+    height: auto;
+}
+.nav button{
+    width: 5%;
+    height: auto;
+    font-size: 25px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5%;
+}
+.nav img{
+    width: 30%;
+    height: auto;
+    border-radius: 5%;
+    top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Login-Jaimie*/
+.container p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.container input{
+    width:100%;
+    margin-bottom: 30px;
+}
+
+.container input[type="email"], input[type="password"]
+{
+    border: none;
+    outline: none;
+    background-color:white;
+    border-radius: 10px;
+    height: 35px;
+    color: #c24cf6;
+    font-size: 16px;
+    width: 55%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+input[type="email"], input[type="password"]{
+    border: none;
+    outline: none;
+    background-color:white;
+    border-radius: 10px;
+    height: 35px;
+    color: #c24cf6;
+    font-size: 16px;
+    width: 55%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*Genre Select*/
+img.logo {
+    position: fixed;
+    left: 50%;
+    top: 2.5%;
+    width: 50%;
+    transform: translate(-50%, 0);
+}
+
+div.fixed {
+    position: fixed;
+    width: 100%;
+    text-align: center;
+}
+
+div.top {
+    height: 20%;
+    top: 0;
+    left: 0;
+    background-color: #231F20;
+}
+
+div.bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    bottom: 8%;
+    height: 120px;
+    background-color: #231F20;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='105' viewBox='0 0 80 105'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='death-star' fill='%23373233' fill-opacity='0.4'%3E%3Cpath d='M20 10a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm15 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zM20 75a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zm30-65a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm0 65a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zM35 10a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zM5 45a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zm60 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    color: #c24cf6;
+    font-family: rockwell;
+    font-size: 84px;
+    border-style: solid none solid none;
+    border-width: 15px;
+    border-color: #E92EFB;
+}
+
+.fixbtn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    border: none;
+    color: white;
+    background-color: #E92EFB;
+    font-size: 72px;
+    cursor: pointer;
+    border-radius: 16px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: #231F20;
+    position: absolute;
+    top: 20%;
+    width: 98.4%;
+}
+
+.btn {
+    border: none;
+    color: white;
+    font-family: rockwell;
+    font-size: 36px;
+    cursor: pointer;
+    border-radius: 16px;
+    height: 360px;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-family: rockwell;
+    font-size: 20px;
+}
+
+.hype {
+    background-color: #7fff00;
+    color: black;
+}
+
+.rock {
+    background-color: #0310EA;
+}
+
+.hits {
+    background-color: #FF1493;
+}
+
+.rap {
+    background-color: #c24cf6;
+}
+
+.thro {
+    background-color: #FFFF66;
+    color: black;
+}
+
+.ctry {
+    background-color: #fc6e22;
+    color: black;
+}
+/*Playlist*/
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    font-family: 'Secular One',sans-serif;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+
+
+
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: rockwell;
+    font-size: 20px;
+}
+
+.fixbtn {
+    position: fixed;
+    border: none;
+    color: white;
+    background-color: #E92EFB;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 16px;
+    width: 30px;
+    height: 30px;
+}
+nav {
     width: 100%;
     margin: 0px;
     box-sizing: border-box;
     display: flex;
     padding: 1em 0 2em 0;
 }
-
-nav a{
+nav a {
     text-decoration: none;
     margin: 0 40px;
-  }
-
-#nav-bar-left{
-    width: 20%;
 }
-#Logo{
-    width: 60%;
-    height: auto;
-
+#nav-bar-left {
+    width: 25%;
 }
-#nav-bar-right{
-    width: 20%;
+
+#nav-bar-right {
+    width: 25%;
     padding-right:10px;
 }
-#nav-bar-left img{
-    height: auto;/*may need to fix this height*
+#nav-bar-left img {
+    height: auto;/*may need to fix this height*/
     width: 40%;
-    border-radius: 20px;
+    border-radius: 3px;
     padding:4px;
     background: #E92EFB;
 }
-#nav-bar-right img{
-    height: auto;/*may need to fix this height*
+#nav-bar-right img {
+    height: auto;/*may need to fix this height*/
     width: 40%;
-    border-radius: 20px;
+    border-radius: 3px;
+    padding:4px;
     background: #E92EFB;
 }
-#Logo img{
+#Logo img {
     width: 80%;
     text-align: center;
 }
-/*#Logo{
-    background-image: url("logo.jpg");
-    box-shadow: 0 0 0 1pt #000000;
-    width: 50%;
-    padding-top: 0px;
-    min-width: 50%;
-    margin: auto;
-    background-position: center;
-    height: auto;
-    background-repeat: no-repeat;
+
+/* Classes */
+.Playlist {
+    background-color:#000000
+    width:100%;
+    height:100%;
+}
+.Playlist h1 {
     text-align:center;
-}*
-
-/*#Logo ul{
-    width:50%;
-    height: auto;
+    font-family: 'Secular One',sans-serif;
+    color:white;
 }
-nav ul{
-    list-style: none;
-    width: 100%;
-}*
-/*nav ul li{
-    width: 25%;
-    list-style-type: none;
-    display: inline-block;
-    width: auto;
-    text-align:center;
-    margin-right: 3em;
-}*
-
-
-
-
-#Buttons{
-    width: 100%;
+.Playlist ul {
+    padding:0;
+    margin-left:1em;
+    display:block;
 }
-#Buttons ul li{
-    list-style-type: none;
-    padding-right: 50px;
-    padding-bottom: 30px;
-}
-
-#Buttons ul li a{
-    text-decoration: none;
-    padding: 4px;
-    padding-bottom: 7px;
-    font-family: 'Courier New', monospace;
-    font-weight: bolder;
-    font-size: 25px;
-    color: black;
-    background-color: #F8F0C6;
-    text-align: center;
-    /*box-shadow: 0 0 0 2pt #E92EFB; /*trying this, idk if it will work*
-    /*background-color: #E92EFB;*
-    
-}
-#Buttons li img{
-    height: 35px;
-    width: auto;
-    padding-right: 10px;
-    padding-left: 25%;
-
-}
-
-#Buttons a.visited{
-    color:#440BD4;
-}
-#Featured{
-    width: 100%;
-    display: inline-block;
-    float: none;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bolder;
-    font-size: 21px;
-    color: white;
-}
-#Featured ul{
-    width: 44%;
-    display: inline-block;
-    float:none;
-    border-radius: 3px;
-    background: #440BD4;
-    padding:0px
-}
-#Featured li{
-    list-style-type: none;
+.Playlist ul li {
+    list-style-type:none;
+    margin:1px 0 0 0;
+    padding:10%;
     display:inline-block;
-    padding: 2px;
 }
-#Featured img{
-    width: 22px;
-    height: 24px;
-    min-height: 10px;
-    max-height: 25px;
-    margin: 0px;
-    padding: 0px;
+.Playlist ul li img {
+    width:40%;
+    height:40%;
+    float:left;
 }
-#Playlist{
-    background-image: url("VintageRecordList.jpg");
-    background-repeat: no-repeat;
-
+.Playlist ul li p {
+    display:inline-block;
+    color:white;
+    font-family:'Roboto',sans-serif;
+    font-size:large;
+    width:40%;
+    margin-left:5%;
 }
-#Playlist li{
-    
-    list-style-type: none;
-    padding-top: 5%;
-    display: inline-block;
-    /*border-radius: 20px;
-    background: #440BD4;*
-    color:black;
-    font-family: 'Courier New';
+.Playlist ul li button {
+    text-align:center;
+    background-color:blue;
+    color:white;
     font-weight:bolder;
+    font-size:medium;
+    width:20%;
+    margin-left:5%;
 }
-#Playlist li a{
+/*Songs*/
+.Songs {
+    background-color:#000000;
     width: 100%;
-    text-decoration:none;
-    color:black;
-    font-family: 'Courier New';
-    font-weight:bolder;
-    word-wrap: break-word;
+    height: 100%;
 }
-#Playlist li img{
-    height: auto;
-    width: 100%;
+.Songs h2 {
+    color:white;
+    font-family: 'Secular One',sans-serif;
+    font-size: x-large;
     text-align: center;
-    /*padding-top:30px;
-
 }
-#userName{
+.Songs ul {
+    padding:0;
+    margin-left:1em;
+    display:block;
+}
+.Songs ul li {
+    list-style-type: none;
+    margin:1px 0 0 0;
+    padding:0;
+    display:inline-block;
+}
+.Songs ul li img {
+    width: 20%;
+    height: 20%;
+    margin-top:5%;
+    float: left;
+}
+.Songs ul li h3 {
+    display:inline-block;
+    color:white;
+    font-family:'Roboto',sans-serif;
+    font-size:large;
+    width:40%;
+    margin-left:5%;
+}
+.Songs ul li p {
+    display:inline-block;
+    color:white;
+    font-family:'Roboto',sans-serif;
+    font-size: medium;
+    width: 30%;
+    height: 10%;
+    margin-left: 5%;
+}
+.Songs ul li button {
+    text-align:center;
+    background-color:blue;
+    color:white;
+    margin-left:5%;
+    padding:2% 4%;
+    font-weight: bold;
+    font-size: large;
+}
+#SongControls{
+    width: 100%
+}
+#SongControls ul{
+    width: 100%;
+}
+#SongControls li{
+    width: 25%;
+    text-align: center;
     display: block;
-    color: black;
+    font-size: 14px;
+    padding-right:3px;
+    padding-left:3px;
+    margin:0px;
+    float:left;
 }
-*/
+#SongControls audio{
+    width: 90%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
