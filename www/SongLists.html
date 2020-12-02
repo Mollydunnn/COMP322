@@ -9,7 +9,8 @@
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="css/index.css">
     <title>Sips and Sounds</title>
-    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Secular+One&family=Titillium+Web&display=swap');</style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
     <script>
 
     </script>
@@ -42,7 +43,7 @@
         </div>
     </nav>
 
-    <button onclick="location.href='currentSong.html';">Current Song</button>
+    <a href="currentSong.html">Current Song</a>
 </body>
 
 
@@ -83,10 +84,6 @@ function generateList() {
 </div>
 -->
 
-<script>
-    var songs;
-    songs=getPopPlaylist();
-</script>
 
 <div class="Songs" onload="createSongList(songs)"></div>
 
