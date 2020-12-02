@@ -133,7 +133,7 @@ function startTimer(duration, display) {
 //This function is for fetching the PopPlaylist and its associated songs
 /*
 function getPopPlaylist() {
-    var songData=[];
+    /*
     firebase.database().ref("/Playlists/PopPlaylist").on('value', function(snap) {
         snap.forEach(function(childNodes) {
             songData.push(childNodes.val().Name); //song name
@@ -141,9 +141,26 @@ function getPopPlaylist() {
             songData.push(childNodes.val().Image); //image file string
             songData.push(childNodes.val().Song); //mp3 file string
         });
-        
-    });
+    }); 
     return songData; //returns the list to be used in the getSongs function
+    */
+    var ref = firebase.database().ref("PopPlaylist").orderByKey();
+    ref.once("value").then(function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+            var key = childSnapshot.key;
+            var songData = childSnapshot.val();
+            
+            var song_name = childSnapshot.val().Name;
+            var artist_name = childSnapshot.val().Artist;
+            var image_str = childSnapshot.val().Image;
+            var mp3_str = childSnapshot.val().Song;
+
+            $("#song_name").append("<h3>"+song_name+"</h3>");
+            $("#artist_name").append("<p>"+artist_name+"</p>");
+            $("#image_str").append("<img src='"+image_str+"'>");
+            $("#mp3_str").append(mp3_str);
+        });
+    });
 }
 
 //Function to be used to generate HTML elements
