@@ -48,11 +48,6 @@ function onDeviceReady() {
       const btnSignUp = document.getElementById('btnSignUp');
       const btnLogOut = document.getElementById('btnLogOut');
 
-      storageRef.child('images/Logo1Transparent.png').getDownloadURL().then(function(url) {
-        var img = document.getElementById('mylogo');
-        img.src = url;
-    }, function(error) {});
-    
       //here(all below are user authentication functions)
     btnLogIn.addEventListener('click', e=> {
         const email = txtEmail.value;
@@ -88,10 +83,6 @@ function onDeviceReady() {
             //btnlogOut.classList.add('hide');
         }
     });
-    
-
-    
-
 
 
 
@@ -99,6 +90,10 @@ function onDeviceReady() {
 //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
 
 }());
+/*storageRef.child('img/LogoTransparent.png').getDownloadURL().then(function(url) {
+    var img = document.getElementById('mylogo');
+    img.src = url;
+}, function(error) {});*/
 
 document.addEventListener("deviceready", function() {
     var oneMinute = 60;

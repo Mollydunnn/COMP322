@@ -19,15 +19,15 @@
          https://firebase.google.com/docs/web/setup#available-libraries -->
             <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
             <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
-            <script src="js/index.js"></script>
-            <script>
+            
+            <!--<script>
                   var ref = firebase.database.ref('Playlists').orderByChild("Number");
                     ref.on('value', function(snapshot){
                     snapshot.forEach(function(childSnapshot) {
                     let currentSong= snapshot.val();   
                     console.log(currentSong);
                     })});
-              </script>
+              </script>-->
               <!--<script>
                   database.ref('users/'+Number).once('value').then(function(snapshot) {
                     var prospectId = snapshot.key ;
@@ -54,31 +54,28 @@
         <div id="nav-bar-left">
             <a href=#><img src="img/SearchIcon.png"></a>
         </div>
-        <div id="Logo">
-            <a href="index.html"><img id="mylogo"></a>
+        <div class="Logo">
+            <a href="index.html"><img src="img/LogoTransparent.png"></a> 
         </div>
         <div id="nav-bar-right">
-            <a href="LogIn.html"><img src="img/PersonsIconReal.png"></a>
-        </div>
-        <div id="nav-bar-right">
-            <a href=#><img src="img/SettingIcon.png"></a>
+            <a href="SignUp.html"><img src="img/PersonsIconReal.png"></a>
         </div>
     </nav>
     <div id="current-song-container">
     <div id= "CurrentSong">
-        <img src= "2020HitstoCryto.png">
-        <h4 id= "song">Say So (ft. Nicki Minaj)</h4>
-        <h5 id= "artist"> Doja Cat, Nicki Minaj</h5>
-        <audio controls id="audio" src="songs/EdgeOfSeventeen.mp3" ></audio>
-        <h4 id="songNo">Song No.</h4>
-        <h4 id="songNumber">#</h4>
-        <span id="time">1:00</span>
-        <h4 id="drinkCount">Drink Count</h4>
-        <h4 id="drinkCountNumber">#</h4> 
+        <img src= "img/mileycyrus.jpg">
+        <h4 id= "song">Edge of Midnight(Midnight Sky Remix)</h4>
+        <h5 id= "artist"> Miley Cyrus ft. Stevie Nicks</h5>
+        
+        <ul id="SongControls">
+            <li><p id="songNo">Song No.<br>  1</p></li>
+            <li><audio controls id="audio" src="songs/EdgeOfSeventeen.mp3" ></audio></li>
+            <li><p id="drinkCount">Drink Count<br>   1</p></li> 
+    </ul>
     </div>
-
+<!--<span id="time">1:00</span>-->
 </div>
     <script src="cordova.js"></script>
-    
+    <script src="js/index.js"></script>
 </body>
 </html>
