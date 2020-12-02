@@ -157,7 +157,7 @@ function createSongList(songs) {
     // 0=name, 1=artist, 2=image, 3=mp3
     for (var i=0; i<songs.length; i+=4) { //increment in 4s
         var list_item = document.createElement('li');
-        list_item.appendChild(document.createElement('img').createTextNode(songs[i+2])); //image url in img element
+        list_item.appendChild(document.createElement('img').createTextNode('songs/'+songs[i+2])); //image url in img element
         list_item.appendChild(document.createElement('h3').createTextNode(songs[i])); //song name in h3 element
         list_item.appendChild(document.createElement('button')); //needs to play the sound
         list_item.appendChild(document.createElement('p').createTextNode(songs[i+1])); //artist name in p element
