@@ -4,7 +4,6 @@
      <title> Sign In Page</title>
      <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' ; script-src 'unsafe-inline' * ; media-src *; img-src *;">
      <link href= "css/index.css" rel = "stylesheet" type = "text/css" >
-     <script src="js/index.js"></script>
     </head>
         <body>
             <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
@@ -18,13 +17,10 @@
                     <a href=#><img src="img/SearchIcon.png"></a>
                 </div>
                 <div id="Logo">
-                    <a href="index.html"><img id="mylogo"></a>
+                    <a href="index.html"><img src="img/LogoTransparent.png"></a> 
                 </div>
                 <div id="nav-bar-right">
-                    <a href="LogIn.html"><img src="img/PersonsIconReal.png"></a>
-                </div>
-                <div id="nav-bar-right">
-                    <a href=#><img src="img/SettingIcon.png"></a>
+                    <a href="SignUp.html"><img src="img/PersonsIconReal.png"></a>
                 </div>
             </nav>
             <div class= "loginbox">
@@ -36,7 +32,7 @@
             <p>Password</p>
             <input type="password" name="" placeholder="Enter Password">
             <a href="#"> Forgot your password?</a> 
-            <button onclick="logIn()">Log In</button>
+            <button id="btnLogIn" onclick="logIn()">Log In</button>
         </form>
         <h2></h2>
         <p> Don't have an account? <a href="SignUp.html"> Sign Up Here</a>
@@ -44,6 +40,7 @@
         </p>
 
         <script src="cordova.js"></script>
+        <script src="js/index.js"></script>
         </div>
     </body>
     </html>
