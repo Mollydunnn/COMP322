@@ -48,47 +48,51 @@
 </body>
 
 
-
-<!--
 <script>
-//Returns the name of the playlist
-function playlistName() {
-    // name = <fetch from database>
-    // return name
-}
+    //Function to play audio on button click
+    function playAudio(song) {
+        alert("On Press of "+song);
+        var path = "songs/"
+        var sound = new Audio(path + song + ".mp3");
+        sound.play();
+    }
 
-//Returns a list of songs for the playlist
-function generateList() {
-    createSongList(array);
-}
 </script>
 
-<h1 onload="playlistName()"></h1>
-<div onload="generateList()"></div>
-
 <div class="Songs">
-    <h2>Playlist Name</h2>
+    <h2>Today's Pop Hits</h2>
     <ul>
         <li>
-            <img src="monkeys.png">
-            <h3>Song 1</h3>
-            <button type="button">></button>
-            <p>by Artist 1</p>
+            <img src="mileycyrus.jpg">
+            <h3>Edge of Seventeen(Midnight Sky Remix)</h3>
+            <button onclick="playAudio('EdgeOfSeventeen')">></button>
+            <p>Miley Cyrus</p>
         </li>
         <li>
-            <img src="records.png">
-            <h3>Song 2</h3>
-            <button type="button">></button>
-            <p>by Artist 2</p>
+            <img src="billieeilish.png">
+            <h3>Therefore I am</h3>
+            <button onclick="playAudio('ThereforeIAm')">></button>
+            <p>Billie Eilish</p>
+        </li>
+        <li>
+            <img src="ArianaGrande.jpg">
+            <h3>Positions</h3>
+            <button onclick="playAudio('Positions')">></button>
+            <p>Ariana Grande</p>
+        </li>
+        <li>
+            <img src="BTS.jpg">
+            <h3>Dynamite</h3>
+            <button onclick="playAudio('Dynamite')">></button>
+            <p>BTS</p>
+        </li>
+        <li>
+            <img src="TheWeeknd.jpeg">
+            <h3>Blinding Lights</h3>
+            <button onclick="playAudio('BlindedByTheLight')">></button>
+            <p>The Weeknd</p>
         </li>
     </ul>
 </div>
--->
-
-<script>
-    songs=getPopPlaylist();
-</script>
-
-<div class="Songs" onload="createSongList(songs)"></div>
 
 </html>
