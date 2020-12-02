@@ -47,6 +47,11 @@ function onDeviceReady() {
       const btnLogIn = document.getElementById('btnLogIn');
       const btnSignUp = document.getElementById('btnSignUp');
       const btnLogOut = document.getElementById('btnLogOut');
+
+      storageRef.child('images/Logo1Transparent.png').getDownloadURL().then(function(url) {
+        var img = document.getElementById('mylogo');
+        img.src = url;
+    }, function(error) {});
     
       //here(all below are user authentication functions)
     btnLogIn.addEventListener('click', e=> {
@@ -83,23 +88,9 @@ function onDeviceReady() {
             //btnlogOut.classList.add('hide');
         }
     });
+    
 
-    /*function startTimer(duration, display) {
-    var timer;
-    timer = duration;
-    var minutes, seconds;
-    setInterval(function () {
-        seconds = parseInt(timer % 60, 10);
-
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-}*/
+    
 
 
 
@@ -107,7 +98,7 @@ function onDeviceReady() {
 //THis is the the function to keep track of the users and to modify 
 //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
 
-});
+}());
 
 document.addEventListener("deviceready", function() {
     var oneMinute = 60;

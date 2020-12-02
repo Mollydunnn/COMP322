@@ -2,35 +2,58 @@
 <html lang="en">
     
     <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' ; script-src 'unsafe-inline' * ; media-src *; img-src *;">
         <meta charset="UTF-8">
         <title>Saved Playlists</title>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
     </head>
     <body>
+        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+            <script src="js/index.js"></script>
+            <nav>
+                <div id="nav-bar-left">
+                    <a href=#><img src="img/SearchIcon.png"></a>
+                </div>
+                <div id="Logo">
+                    <a href="index.html"><img id="mylogo"></a>
+                </div>
+                <div id="nav-bar-right">
+                    <a href="LogIn.html"><img src="img/PersonsIconReal.png"></a>
+                </div>
+                <div id="nav-bar-right">
+                    <a href=#><img src="img/SettingIcon.png"></a>
+                </div>
+            </nav>
         <h1>Saved Playlists</h1>
                 <input id= "playlist" type= "text" placeholder="Search playlist">
                 <div class="Playlist">
                 <ul>
                     <li>
-                        <img alt="Disney" src="Disneyplaylist.jpg" style="width: 225px; height: 225px;">
+                        <img alt="Disney" src="img/Disneyplaylist.jpg" style="width: 225px; height: 225px;">
                         <p> Disney Playlist</p>
                         <button type="button" class="playButton">PLAY</button>
                         
                     </li>
                     <br>
                     <li>
-                        <img alt="Ariana Grande" src="ArianaGrande.jpg">
+                        <img alt="Ariana Grande" src="img/ArianaGrande.jpg">
                         <p>Ariana Grande Playlist</p>
                         <button type="button" class="playButton">PLAY</button>
                     </li>
                     <br>
                     <li>
-                        <img alt="The Weeknd" src="TheWeeknd.jpeg">
+                        <img alt="The Weeknd" src="img/TheWeeknd.jpeg">
                         <p>The Weeknd Playlist</p>
                         <button type="button" class="playButton">PLAY</button>
                     </li>
                     <br>
                     <li>
-                        <img alt="Gym" src="gym.jpg" style="width: 225px; height: 225px;">
+                        <img alt="Gym" src="img/gym.jpg" style="width: 225px; height: 225px;">
                         <p>Gym Playlist Created</p> 
                         <button type="button" class="playButton">PLAY</button>
                     </li>
@@ -38,8 +61,6 @@
             </div>
             
             <script src="cordova.js"></script>
-            <script src="js/index.js"></script>
-            
-            </html>
+           
     </body>
 </html>

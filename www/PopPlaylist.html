@@ -29,7 +29,7 @@
         * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
             * Enable inline JS: add 'unsafe-inline' to default-src
     -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' ; script-src 'unsafe-inline' * ; media-src *; img-src *;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -47,16 +47,22 @@
         <p class="event received">Device is Ready</p>
     </div>
 </div>
-
-<nav>
-    <div id="nav-bar-left">
-        <a href=#><img src="SearchIcon.png"></a>
-    </div>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+            <script src="js/index.js"></script>
+    <nav>
+        <div id="nav-bar-left">
+            <a href=#><img src="SearchIcon.png"></a>
+        </div>
     <div id="Logo">
-        <a href=#><img src="LogoTransparent.png"></a>
+        <a href=#><img id="mylogo"></a>
     </div>
     <div id="nav-bar-right">
-        <a href="Account.html"><img src="PersonsIconReal.png"></a>
+        <a href="LogIn.html"><img src="PersonsIconReal.png"></a>
     </div>
     <div id="nav-bar-right">
         <a href=#><img src="SettingIcon.png"></a>
@@ -93,5 +99,4 @@
 </div>
 
 <script src="cordova.js"></script>
-<script src="js/index.js"></script>
 </html>

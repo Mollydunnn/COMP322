@@ -1,4 +1,5 @@
   // Your web app's Firebase configuration
+  const app = document.querySelector('.countdown-timer');
   var firebaseConfig = {
     apiKey: "AIzaSyAMAJd3prCsJjPkR6xcSiv5EB7jSFLLu48",
     authDomain: "comp322-jmkek.firebaseapp.com",
@@ -70,3 +71,30 @@ function signOut(){
         // An error happened.
     });
 }
+
+
+function startTimer(duration, display) {
+    var timer;
+    timer = duration;
+    var minutes, seconds;
+    setInterval(function () {
+        seconds = parseInt(timer % 60, 10);
+
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    if (this.document.title == 'Cart'){
+        oneMinute = 60,
+        display = document.querySelector('#time');
+    startTimer(oneMinute, display);
+    }
+};
+

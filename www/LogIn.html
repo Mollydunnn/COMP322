@@ -2,14 +2,34 @@
 <html>
     <head>
      <title> Sign In Page</title>
-     <link href= "css/accountstyle.css" rel = "stylesheet" type = "text/css" >
+     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' ; script-src 'unsafe-inline' * ; media-src *; img-src *;">
+     <link href= "css/index.css" rel = "stylesheet" type = "text/css" >
      <script src="js/index.js"></script>
     </head>
         <body>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+            <nav>
+                <div id="nav-bar-left">
+                    <a href=#><img src="img/SearchIcon.png"></a>
+                </div>
+                <div id="Logo">
+                    <a href="index.html"><img id="mylogo"></a>
+                </div>
+                <div id="nav-bar-right">
+                    <a href="LogIn.html"><img src="img/PersonsIconReal.png"></a>
+                </div>
+                <div id="nav-bar-right">
+                    <a href=#><img src="img/SettingIcon.png"></a>
+                </div>
+            </nav>
             <div class= "loginbox">
             <a href="index.html"><button class="fixbtn" type="button">&#x3c</button></a>
-            <img src="powerhour.png" height = "120" class ="powerhour">
-            <h1></h1>
+            
         <form>
             <p> Email</p>
             <input type= "email" name="" placeholder="Enter Email">
@@ -24,7 +44,6 @@
         </p>
 
         <script src="cordova.js"></script>
-        <script src="script.js"></script>
         </div>
     </body>
     </html>

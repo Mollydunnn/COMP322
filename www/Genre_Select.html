@@ -3,15 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/Genre_SelectStyle.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' ; script-src 'unsafe-inline' * ; media-src *; img-src *;">
+    <link rel="stylesheet" href="css/index.css">
     <title>Genre Select</title>
 </head>
 
 <body>
-    <div class="fixed top">
-        <img src="Logo2.jpg" class="logo" alt="Logo">
-        <a href="Songs.html">Songs page example</a>
-    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+            <script src="js/index.js"></script>
+            <nav>
+                <div id="nav-bar-left">
+                    <a href=#><img src="img/SearchIcon.png"></a>
+                </div>
+                <div id="Logo">
+                    <a href="index.html"><img id="mylogo"></a>
+                </div>
+                <div id="nav-bar-right">
+                    <a href="LogIn.html"><img src="img/PersonsIconReal.png"></a>
+                </div>
+                <div id="nav-bar-right">
+                    <a href=#><img src="img/SettingIcon.png"></a>
+                </div>
+            </nav>
     <a href="index.html"><button class="fixbtn" type="button">&#x3c</button></a>
     <div class="grid-container">
         <button class="btn hits" type="button">Top Hits</button></a>
