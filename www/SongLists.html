@@ -46,13 +46,12 @@
     <a href="currentSong.html">Current Song</a>
 </body>
 
-
+<!--
 <script>
     //Function to play audio on button click
     function playAudio(song) {
-        alert("On Press of "+song);
         var path = "songs/"
-        var sound = new Audio(path + song + ".mp3");
+        var sound = new Audio(path + song);
         sound.play();
     }
 
@@ -62,46 +61,62 @@
     <h2>Today's Pop Hits</h2>
     <ul>
         <li>
-            <img src="mileycyrus.jpg">
+            <img src="img/mileycyrus.jpg">
             <h3>Edge of Seventeen(Midnight Sky Remix)</h3>
             <button onclick="playAudio('EdgeOfSeventeen')">></button>
             <p>Miley Cyrus</p>
         </li>
         <li>
-            <img src="billieeilish.png">
+            <img src="img/billieeilish.png">
             <h3>Therefore I am</h3>
             <button onclick="playAudio('ThereforeIAm')">></button>
             <p>Billie Eilish</p>
         </li>
         <li>
-            <img src="ArianaGrande.jpg">
+            <img src="img/ArianaGrande.jpg">
             <h3>Positions</h3>
             <button onclick="playAudio('Positions')">></button>
             <p>Ariana Grande</p>
         </li>
         <li>
-            <img src="BTS.jpg">
+            <img src="img/BTS.jpg">
             <h3>Dynamite</h3>
             <button onclick="playAudio('Dynamite')">></button>
             <p>BTS</p>
         </li>
         <li>
-            <img src="TheWeeknd.jpeg">
+            <img src="img/TheWeeknd.jpeg">
             <h3>Blinding Lights</h3>
             <button onclick="playAudio('BlindedByTheLight')">></button>
             <p>The Weeknd</p>
         </li>
     </ul>
 </div>
-
-<!---
+-->
+<!--
 <script>
     var songs;
     songs=getPopPlaylist();
 </script>
 <div class="Songs" onload="createSongList(songs)"></div>
 -->
-</html>
-<div class="Songs" onload="createSongList(songs)"></div>
--->
+
+<script>
+    function displaySongs() {
+    var songsRef = firebase.database().ref('PopPlaylist/');
+    songsRef.on("value", function(data) {
+        var playlist_name = data.val().Name;
+        var child = data.val().child();
+        console.log("Playlist Name: "+playlist_name);
+        console.log("Song Name: "+child.Name);
+        console.log("Artist Name: "+child.Artist);
+        console.log("Image String: "+child.Image);
+        console.log("MP3 String: "+child.Song);
+    });
+}
+</script>
+
+<div class="Songs" onload="displaySongs()">
+
+</div>
 </html>

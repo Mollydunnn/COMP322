@@ -49,7 +49,7 @@ function onDeviceReady() {
       const btnLogOut = document.getElementById('btnLogOut');
 
       //here(all below are user authentication functions)
-    btnLogIn.addEventListener('click', e=> {
+    btnLogIn.addEventListener('click', e=> { //CONSOLE ERROR "Uncaught TypeError: Cannot read property 'addEventListener' of null"
         const email = txtEmail.value;
         const password = txtPassword.value;
         const auth = firebase.auth();
@@ -89,7 +89,8 @@ function onDeviceReady() {
 //THis is the the function to keep track of the users and to modify 
 //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
 
-}());
+}()); //CONSOLE ERROR "Uncaught TypeError: Cannot read property 'addEventListener' of null"
+
 /*storageRef.child('img/LogoTransparent.png').getDownloadURL().then(function(url) {
     var img = document.getElementById('mylogo');
     img.src = url;
@@ -97,7 +98,7 @@ function onDeviceReady() {
 
 document.addEventListener("deviceready", function() {
     var oneMinute = 60;
-    display = document.querySelector('#time');
+    var display = document.querySelector('#time');
     startTimer(oneMinute, display);
 }, false);
 
@@ -131,25 +132,10 @@ function startTimer(duration, display) {
 
 
 //This function is for fetching the PopPlaylist and its associated songs
-/*
 function getPopPlaylist() {
-    /*
-    firebase.database().ref("/Playlists/PopPlaylist").on('value', function(snap) {
-        snap.forEach(function(childNodes) {
-            songData.push(childNodes.val().Name); //song name
-            songData.push(childNodes.val().Artist); //artist name
-            songData.push(childNodes.val().Image); //image file string
-            songData.push(childNodes.val().Song); //mp3 file string
-        });
-    }); 
-    return songData; //returns the list to be used in the getSongs function
-    */
     var ref = firebase.database().ref("PopPlaylist").orderByKey();
     ref.once("value").then(function(snapshot) {
         snapshot.forEach(function(childSnapshot) {
-            var key = childSnapshot.key;
-            var songData = childSnapshot.val();
-            
             var song_name = childSnapshot.val().Name;
             var artist_name = childSnapshot.val().Artist;
             var image_str = childSnapshot.val().Image;
@@ -157,25 +143,21 @@ function getPopPlaylist() {
 
             $("#song_name").append("<h3>"+song_name+"</h3>");
             $("#artist_name").append("<p>"+artist_name+"</p>");
-            $("#image_str").append("<img src='"+image_str+"'>");
-            $("#mp3_str").append(mp3_str);
+            $("#image_str").append("<img src='songs/"+image_str+"'>");
+            $("#mp3_str").append("<button onclick='playAudio('songs/"+mp3_str+"'>></button>");
         });
     });
 }
 
-//Function to be used to generate HTML elements
-function createSongList(songs) {
-    document.createElement('h2').createTextNode("Today's Pop Hits");
-    var songList = document.createElement('ul');
-    // 0=name, 1=artist, 2=image, 3=mp3
-    for (var i=0; i<songs.length; i+=4) { //increment in 4s
-        var list_item = document.createElement('li');
-        list_item.appendChild(document.createElement('img').createTextNode('songs/'+songs[i+2])); //image url in img element
-        list_item.appendChild(document.createElement('h3').createTextNode(songs[i])); //song name in h3 element
-        list_item.appendChild(document.createElement('button')); //needs to play the sound
-        list_item.appendChild(document.createElement('p').createTextNode(songs[i+1])); //artist name in p element
-        item.appendChild(list_item); //adds this list item to the ul element
-    }
-    return songList; //returns ul element, containing all list items as children
+function displaySongs() {
+    var songsRef = firebase.database().ref('PopPlaylist/');
+    songsRef.on("value", function(data) {
+        var playlist_name = data.val().Name;
+        var child = data.val().child();
+        console.log("Playlist Name: "+playlist_name);
+        console.log("Song Name: "+child.Name);
+        console.log("Artist Name: "+child.Artist);
+        console.log("Image String: "+child.Image);
+        console.log("MP3 String: "+child.Song);
+    });
 }
-*/
