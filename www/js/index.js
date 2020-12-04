@@ -130,7 +130,7 @@ function startTimer(duration, display) {
 //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
 */
 
-
+/*
 //This function is for fetching the PopPlaylist and its associated songs
 function getPopPlaylist() {
     var ref = firebase.database().ref("PopPlaylist").orderByKey();
@@ -160,4 +160,31 @@ function displaySongs() {
         console.log("Image String: "+child.Image);
         console.log("MP3 String: "+child.Song);
     });
+} */
+
+//BrandProfile = list of brands (equivalent to 'Playlists')
+//BrandProfile[i] would be each playlist, child of this would be songs of playlists
+function getSongs_PopPlaylist(Playlist) {
+    console.log(typeof(Playlist)); //Playlist represents specific playlist
+    console.log(typeof(Playlist.Name));
+    let doc = document.getElementById('songs-list-container');
+    doc.innerHTML += `
+        <h2>${Playlist[1]}</h2>
+        `
+    //Playlist[0]=ID, Playlist[1]=Name, Playlist[2:]=Songs
+    for (var i=2; i<Playlist.length; i++) {
+        console.log(typeof(Playlist[i])); //these will be the songs
+        var number = JSON.stringify(Playlist[i].Number); //Number attribute of each song
+        console.log(number);
+        doc.innerHTML += /* innerHTML begin */ ` 
+            <ul>
+            <li>
+                <img src="img/${Playlist[i].Image}">
+                <h3>${Playlist[i].Name}</h3>
+                <button onclick="playAudio('${Playlist[i].Song}')">></button>
+                <p>${Playlist[i].Artist}<p>
+            </li>
+            </ul>
+            ` /* innerHTML end */
+    }
 }

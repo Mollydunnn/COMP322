@@ -10,20 +10,22 @@
     <link rel="stylesheet" href="css/index.css">
     <title>Sips and Sounds</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
-    <script>
-
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <!--Firebase app named default already exists at initializeApp-->
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
-            <!-- TODO: Add SDKs for Firebase products that you want to use
+    
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
-            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
-            <script src="js/index.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/script.js"></script>
+    
     <div class="app">
         <h1>Apache Cordova</h1>
         <div id="deviceready" class="blink">
@@ -93,30 +95,26 @@
     </ul>
 </div>
 -->
-<!--
-<script>
-    var songs;
-    songs=getPopPlaylist();
-</script>
-<div class="Songs" onload="createSongList(songs)"></div>
--->
 
 <script>
-    function displaySongs() {
-    var songsRef = firebase.database().ref('PopPlaylist/');
-    songsRef.on("value", function(data) {
-        var playlist_name = data.val().Name;
-        var child = data.val().child();
-        console.log("Playlist Name: "+playlist_name);
-        console.log("Song Name: "+child.Name);
-        console.log("Artist Name: "+child.Artist);
-        console.log("Image String: "+child.Image);
-        console.log("MP3 String: "+child.Song);
-    });
-}
+    // Plays the song when the corresponding button is clicked
+    function playAudio(song) {
+        path = "songs/"
+        var sound = new Audio(path+song);
+        sound.play();
+    }
+
+    var ref = firebase.database().ref("Playlists/PopPlaylist"); //Database not defined
+    ref.once('value').then((snapshot) => {
+        let Playlist = snapshot.val();
+        Playlist = Object.values(Playlist);
+        console.log(Playlist);
+        console.log(Playlist[0]);
+        getSongs_PopPlaylist(Playlist);
+    })
 </script>
 
-<div class="Songs" onload="displaySongs()">
+<div class="Songs" id="songs-list-container">
 
 </div>
 </html>
