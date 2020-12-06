@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' *; media-src *; img-src *; script-src 'unsafe-inline' *;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="css/index.css">
     <title>Sips and Sounds</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+ 
 </head>
-
 <body>
     <!--Firebase app named default already exists at initializeApp-->
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
@@ -24,7 +21,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
     <script src="js/index.js"></script>
-    <script src="js/script.js"></script>
     
     <div class="app">
         <h1>Apache Cordova</h1>
@@ -48,53 +44,7 @@
     <a href="currentSong.html">Current Song</a>
 </body>
 
-<!--
-<script>
-    //Function to play audio on button click
-    function playAudio(song) {
-        var path = "songs/"
-        var sound = new Audio(path + song);
-        sound.play();
-    }
 
-</script>
-
-<div class="Songs">
-    <h2>Today's Pop Hits</h2>
-    <ul>
-        <li>
-            <img src="img/mileycyrus.jpg">
-            <h3>Edge of Seventeen(Midnight Sky Remix)</h3>
-            <button onclick="playAudio('EdgeOfSeventeen')">></button>
-            <p>Miley Cyrus</p>
-        </li>
-        <li>
-            <img src="img/billieeilish.png">
-            <h3>Therefore I am</h3>
-            <button onclick="playAudio('ThereforeIAm')">></button>
-            <p>Billie Eilish</p>
-        </li>
-        <li>
-            <img src="img/ArianaGrande.jpg">
-            <h3>Positions</h3>
-            <button onclick="playAudio('Positions')">></button>
-            <p>Ariana Grande</p>
-        </li>
-        <li>
-            <img src="img/BTS.jpg">
-            <h3>Dynamite</h3>
-            <button onclick="playAudio('Dynamite')">></button>
-            <p>BTS</p>
-        </li>
-        <li>
-            <img src="img/TheWeeknd.jpeg">
-            <h3>Blinding Lights</h3>
-            <button onclick="playAudio('BlindedByTheLight')">></button>
-            <p>The Weeknd</p>
-        </li>
-    </ul>
-</div>
--->
 
 <script>
     // Plays the song when the corresponding button is clicked
