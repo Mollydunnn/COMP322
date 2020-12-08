@@ -47,6 +47,7 @@ function onDeviceReady() {
       const btnLogIn = document.getElementById('btnLogIn');
       const btnSignUp = document.getElementById('btnSignUp');
       const btnLogOut = document.getElementById('btnLogOut');
+      const btnSavedPlaylist= document.getElemtentById('btnSavedPlaylist');
       //------------------------------------------------user authentication stuff-Jaimie
       //here(all below are user authentication functions)
     btnLogIn.addEventListener('click', e=> { //CONSOLE ERROR "Uncaught TypeError: Cannot read property 'addEventListener' of null"
@@ -80,11 +81,14 @@ function onDeviceReady() {
             btnLogOut.style.display= "block";
             btnSignUp.style.display= "none";
             btnLogIn.style.display= "none";
+            //show the saved playlist button
+            btnSavedPlaylist.style.display= "block";
             console.log("User is logged in successfully.");
         } else{
             btnLogOut.style.display= "none";
             btnSignUp.style.display= "block";
             btnLogIn.style.display= "block";
+            btnSavedPlaylist.style.display= "none";
             //hide logout button here
             console.log("User is not logged in.");
         }
