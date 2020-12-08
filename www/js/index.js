@@ -39,22 +39,22 @@ function onDeviceReady() {
         appId: "1:904116987452:web:cb9975b4e0a2ac2fd54539"
       };
       firebase.initializeApp(config);
-      const database = firebase.database();
-      const rootRef = firebase.database().ref();
+      //const database = firebase.database();
+      //const rootRef = firebase.database().ref();
       const storageRef = firebase.storage().ref();
       const txtEmail = document.getElementById('txtEmail');
       const txtPassword = document.getElementById('txtPassword');
       const btnLogIn = document.getElementById('btnLogIn');
       const btnSignUp = document.getElementById('btnSignUp');
       const btnLogOut = document.getElementById('btnLogOut');
-
+      //------------------------------------------------user authentication stuff-Jaimie
       //here(all below are user authentication functions)
-    btnLogIn.addEventListener('click', e=> {
+    btnLogIn.addEventListener('click', e=> { //CONSOLE ERROR "Uncaught TypeError: Cannot read property 'addEventListener' of null"
         const email = txtEmail.value;
         const password = txtPassword.value;
         const auth = firebase.auth();
         const promise = auth.signInWithEmailAndPassword(email, password);
-        promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
+        //promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
         document.getElementById('txtEmail').value = '';
         document.getElementById('txtPassword').value = '';
     });
@@ -64,7 +64,7 @@ function onDeviceReady() {
         const password = txtPassword.value;
         const auth = firebase.auth();
         const promise = auth.createUserWithEmailAndPassword(email, password); //send it off to firebase authentication
-        promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
+        //promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
         document.getElementById('txtEmail').value = '';
         document.getElementById('txtPassword').value = '';
     });
@@ -73,107 +73,109 @@ function onDeviceReady() {
         firebase.auth().signOut();
     });
 
-    firebase.auth().onAuthStateChanged(firebaseUser =>{
+    firebase.auth().onAuthStateChanged(firebaseUser =>{//hides and shows the buttons accordingly
         if(firebaseUser){
             console.log(firebaseUser);
+            //hide sign up and log in button here
+            btnLogOut.style.display= "block";
+            btnSignUp.style.display= "none";
+            btnLogIn.style.display= "none";
             console.log("User is logged in successfully.");
-            //btnlogOut.remove('hide');
         } else{
+            btnLogOut.style.display= "none";
+            btnSignUp.style.display= "block";
+            btnLogIn.style.display= "block";
+            //hide logout button here
             console.log("User is not logged in.");
-            //btnlogOut.classList.add('hide');
         }
-    });
+    });//for testing purposes(run in browser platform with dev tools for debug)
 
-
-
+  
 //THis is the the function to keep track of the users and to modify 
 //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
 
-}());
-/*storageRef.child('img/LogoTransparent.png').getDownloadURL().then(function(url) {
-    var img = document.getElementById('mylogo');
-    img.src = url;
-}, function(error) {});*/
-
-document.addEventListener("deviceready", function() {
-    var oneMinute = 60;
-    display = document.querySelector('#time');
-    startTimer(oneMinute, display);
-}, false);
-
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-   
-}
-
-/*function currentlyPlaying(){
-    let ele = document.getElementById("product-page-container");
-    ele.innerHTML = ``
-}*/
-/*
-    
-//THis is the the function to keep track of the users and to modify 
-//ensures the user is saved as a user when they sign up and confirms when they log in that they exist
-*/
+}()); 
 
 
-//This function is for fetching the PopPlaylist and its associated songs
-function getPopPlaylist() {
-    /*
-    firebase.database().ref("/Playlists/PopPlaylist").on('value', function(snap) {
-        snap.forEach(function(childNodes) {
-            songData.push(childNodes.val().Name); //song name
-            songData.push(childNodes.val().Artist); //artist name
-            songData.push(childNodes.val().Image); //image file string
-            songData.push(childNodes.val().Song); //mp3 file string
-        });
-    }); 
-    return songData; //returns the list to be used in the getSongs function
-    */
-    var ref = firebase.database().ref("PopPlaylist").orderByKey();
-    ref.once("value").then(function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-            var key = childSnapshot.key;
-            var songData = childSnapshot.val();
-            
-            var song_name = childSnapshot.val().Name;
-            var artist_name = childSnapshot.val().Artist;
-            var image_str = childSnapshot.val().Image;
-            var mp3_str = childSnapshot.val().Song;
 
-            $("#song_name").append("<h3>"+song_name+"</h3>");
-            $("#artist_name").append("<p>"+artist_name+"</p>");
-            $("#image_str").append("<img src='"+image_str+"'>");
-            $("#mp3_str").append(mp3_str);
-        });
-    });
-}
-
-//Function to be used to generate HTML elements
-function createSongList(songs) {
-    document.createElement('h2').createTextNode("Today's Pop Hits");
-    var songList = document.createElement('ul');
-    // 0=name, 1=artist, 2=image, 3=mp3
-    for (var i=0; i<songs.length; i+=4) { //increment in 4s
-        var list_item = document.createElement('li');
-        list_item.appendChild(document.createElement('img').createTextNode('songs/'+songs[i+2])); //image url in img element
-        list_item.appendChild(document.createElement('h3').createTextNode(songs[i])); //song name in h3 element
-        list_item.appendChild(document.createElement('button')); //needs to play the sound
-        list_item.appendChild(document.createElement('p').createTextNode(songs[i+1])); //artist name in p element
-        item.appendChild(list_item); //adds this list item to the ul element
+//----------------SongLists.html pulls in names of all songs on Playlist - Emily
+//BrandProfile = list of brands (equivalent to 'Playlists')
+//BrandProfile[i] would be each playlist, child of this would be songs of playlists
+function getSongs_PopPlaylist(Playlist) {
+    console.log(typeof(Playlist)); //Playlist represents specific playlist
+    console.log(typeof(Playlist.Name));
+    console.log(Playlist);
+    sessionStorage.setItem("songs" , JSON.stringify(Playlist));
+    let doc = document.getElementById('songs-list-container');
+    doc.innerHTML += `
+        <h2>${Playlist[1]}</h2>
+        <a href="currentSong.html">Play</a>
+        `
+    //Playlist[0]=ID, Playlist[1]=Name, Playlist[2:]=Songs
+    for (var i=2; i<Playlist.length; i++) {
+        console.log(typeof(Playlist[i])); //these will be the songs
+        var number = JSON.stringify(Playlist[i].Number); //Number attribute of each song
+        console.log(number);
+        doc.innerHTML += /* innerHTML begin */ ` 
+            <ul>
+            <li>
+                <img src="img/${Playlist[i].Image}">
+                <h3>${Playlist[i].Name}</h3>
+                <button onclick="playAudio('${Playlist[i].Song}')"></button>
+                <p>${Playlist[i].Artist}<p>
+            </li>
+            </ul>
+            ` /* innerHTML end */
     }
-    return songList; //returns ul element, containing all list items as children
+    
 }
+//--------------------------------Pull in Playlist song and timer by song-Jaimie
+var timeleft=60;
+function currentSong(song, i){
+    let ele=document.getElementById('current-song-container');
+    
+    //would like to pull in the playlist emily already found in the above code, then I go track by track playing them, q is now that I have it going through the tracks, how do I make it wait til the song is done before moving on(i could do this by just delayin git 60 seconds but I would like it to actualy go off the song)
+    //need to save the name and then have this triggered by an onclick from Playlist
+    setTimeout(function(){
+        var count=59;
+        var timer= setInterval(function(){
+            
+            document.getElementById('time').innerHTML=count;
+            count--;
+            if(count<=0){
+                clearInterval(timer);
+            }
+          }, 1000);
+    ele.innerHTML = `<div id= "CurrentSong">
+    <img src= "${song.Image}">
+    <h4 id= "song">${song.Name}</h4>
+    <h5 id= "artist">${song.Artist}</h5>
+    <ul id="SongControls">
+        <li><p id="songNo">Song No.<br>${song.Number}</p></li>
+        <li><audio id="audio" autoplay src=${song.Song}></audio></li>
+        <li><span id="time">60</span></li>
+        <li><p id="drinkCount">Drink Count<br>${song.Number}</p></li> 
+    </ul>
+</div>`
+}, 60000*(i-2));
+}
+
+//------------------------------------------------Search Stuff -Jaimie
+function getSearchResults(search, playlist){
+    console.log(playlist);
+    console.log(search);
+    //now pull the info from DB and iterate through playlists to compare names wiht searchbar valie, then catipult it to the getSongs_PopPlaylist to pull in that page with the correct info
+    for(let i=0; i< playlist.length; i++){
+        console.log(playlist[i].ID);
+        let playlistName= JSON.stringify(playlist[i].Name);
+        if(search===playlistName){
+            console.log(playlist[i].Name);
+            return JSON.stringify(playlist[i].Name);
+            //passes that playlist to the funciton to display its info on the page
+    }
+    }
+    
+}
+
+
+//---------------------------------------------------

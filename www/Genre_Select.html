@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' ; script-src 'unsafe-inline' * ; media-src *; img-src *;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' *; script-src 'unsafe-inline' * ; media-src *; img-src * data: ; object-src data: 'unsafe-eval';">
     <link rel="stylesheet" href="css/index.css">
     <title>Genre Select</title>
+           
 </head>
 
 <body>
@@ -18,7 +19,7 @@
             <script src="js/index.js"></script>
             <nav>
                 <div id="nav-bar-left">
-                    <a href=#><img src="img/SearchIcon.png"></a>
+                    <a href="SearchPage.html"><img src="img/SearchIcon.png"></a>
                 </div>
                 <div id="Logo">
                     <a href="index.html"><img src="img/LogoTransparent.png"></a> 
@@ -29,7 +30,7 @@
             </nav>
     <a href="index.html"><button class="fixbtn" type="button">&#x3c</button></a>
     <div class="grid-container">
-        <button class="btn hits" type="button" onclick="location.href='SongLists.html';">Top Hits</button></a>
+        <button class="btn hits" type="button"><a href="SongLists.html">Top Hits</a></button>
         <button class="btn hype" type="button">Electro Hype</button>
         <button class="btn thro" type="button">70's Throwback</button>
         <button class="btn rap" type="button">Rap Rundown</button>

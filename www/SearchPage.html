@@ -20,40 +20,75 @@
 <html>
     <head>
         <meta charset= "utf-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="css/index.css">
         <title>Sips and Sounds</title>
         <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@900&display=swap" rel="stylesheet">
 
     </head>
     <body>
+        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+        <script src="js/index.js"></script>
         <div class="app">
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
+            
             <nav>
                 <div id="nav-bar-left">
-                    <a href=#><img src="SearchIcon.png"></a> 
+                    <a href=#><img src="img/SearchIcon.png"></a> 
                 </div>
                 <div id="Logo">
-                    <a href=#><img src="LogoTransparent.png"></a> 
+                    <a href=#><img src="img/LogoTransparent.png"></a> 
                 </div>
                 <div id="nav-bar-right">
-                    <a href=#><img src="PersonsIconReal.png"></a> 
+                    <a href=#><img src="img/PersonsIconReal.png"></a> 
                 </div>
             </nav>
-            <input id="searchbar" onkeyup="()" type="text"
-            name="search" placeholder="Search songs.."> 
-        
+            <form name="myform" onSubmit="return save()">
+
+                <input type="text" id="searchbar" name="searchbar" /><br />
+               <input id="submit"  type="submit" value="Search" />
+            </form>
+           <br>
+
+           <script>
+           var ref = firebase.database().ref('Playlists').orderByChild("Name");
+                ref.once('value')
+                .then((snapshot) => {
+                let playlist = snapshot.val(); 
+                playlist = Object.values(playlist);
+                console.log(playlist);
+                sessionStorage.setItem("p", JSON.stringify(playlist));
+                //pulls from database passes all the playlists and the name that was searched for 
+             })
+            function save(){
+               var search = document.getElementById("searchbar").value;
+               search= JSON.stringify(search);
+               let playlist=JSON.parse(sessionStorage.getItem("p"));
+                getSearchResults(search, playlist);
+                document.write("<h1>Search:</h1>");
+                document.write(search + "<br><br>");
+                let answer =JSON.parse(getSearchResults(search, playlist));  
+                document.write(answer + "\t\t"); //I want it to write the answer from my function
+                document.write("<a href='SongLists.html'><button onclick=\"getSongs_PopPlaylist('search')\">See Songs</button></a>");
+            }
+            </script>
         </div> 
         <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
     </body>
     
 </html>
