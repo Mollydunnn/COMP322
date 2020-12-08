@@ -47,7 +47,7 @@ function onDeviceReady() {
       const btnLogIn = document.getElementById('btnLogIn');
       const btnSignUp = document.getElementById('btnSignUp');
       const btnLogOut = document.getElementById('btnLogOut');
-
+      //------------------------------------------------user authentication stuff-Jaimie
       //here(all below are user authentication functions)
     btnLogIn.addEventListener('click', e=> { //CONSOLE ERROR "Uncaught TypeError: Cannot read property 'addEventListener' of null"
         const email = txtEmail.value;
@@ -73,11 +73,19 @@ function onDeviceReady() {
         firebase.auth().signOut();
     });
 
-    firebase.auth().onAuthStateChanged(firebaseUser =>{
+    firebase.auth().onAuthStateChanged(firebaseUser =>{//hides and shows the buttons accordingly
         if(firebaseUser){
             console.log(firebaseUser);
+            //hide sign up and log in button here
+            btnLogOut.style.display= "block";
+            btnSignUp.style.display= "none";
+            btnLogIn.style.display= "none";
             console.log("User is logged in successfully.");
         } else{
+            btnLogOut.style.display= "none";
+            btnSignUp.style.display= "block";
+            btnLogIn.style.display= "block";
+            //hide logout button here
             console.log("User is not logged in.");
         }
     });//for testing purposes(run in browser platform with dev tools for debug)
@@ -86,11 +94,11 @@ function onDeviceReady() {
 //THis is the the function to keep track of the users and to modify 
 //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
 
-}()); //CONSOLE ERROR "Uncaught TypeError: Cannot read property 'addEventListener' of null"
+}()); 
 
 
 
-
+//----------------SongLists.html pulls in names of all songs on Playlist - Emily
 //BrandProfile = list of brands (equivalent to 'Playlists')
 //BrandProfile[i] would be each playlist, child of this would be songs of playlists
 function getSongs_PopPlaylist(Playlist) {
@@ -121,11 +129,7 @@ function getSongs_PopPlaylist(Playlist) {
     }
     
 }
-//make a function that takes the button clicked's name and gives it to the currentSong
-/*function startPlaylist(name){
-    let newname= JSON.stringify(name);
-    console.log(newname);
-}*/
+//--------------------------------Pull in Playlist song and timer by song-Jaimie
 var timeleft=60;
 function currentSong(song, i){
     let ele=document.getElementById('current-song-container');
@@ -156,14 +160,22 @@ function currentSong(song, i){
 }, 60000*(i-2));
 }
 
-
-function search(){
-    let name= document.getElementById("searchbar");//this should pull in the value that was entered in the input 
+//------------------------------------------------Search Stuff -Jaimie
+function getSearchResults(search, playlist){
+    console.log(playlist);
+    console.log(search);
     //now pull the info from DB and iterate through playlists to compare names wiht searchbar valie, then catipult it to the getSongs_PopPlaylist to pull in that page with the correct info
-    for(let i=0; i< Playlists; i++){
-        if(name==Playlists[i].Name){//this needs to happen after you show search results
-            location.href="SongLists.html";//takes you to new page
-            getSongs_PopPlaylist(Playlist[i]);//passes that playlist to the funciton to display its info on the page
-        }
+    for(let i=0; i< playlist.length; i++){
+        console.log(playlist[i].ID);
+        let playlistName= JSON.stringify(playlist[i].Name);
+        if(search===playlistName){
+            console.log(playlist[i].Name);
+            return JSON.stringify(playlist[i].Name);
+            //passes that playlist to the funciton to display its info on the page
     }
+    }
+    
 }
+
+
+//---------------------------------------------------
