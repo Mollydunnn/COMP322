@@ -43,8 +43,6 @@
         <script src="js/index.js"></script>
         <div class="app">
             <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
             </div>
             
             <nav>
@@ -52,10 +50,10 @@
                     <a href=#><img src="img/SearchIcon.png"></a> 
                 </div>
                 <div id="Logo">
-                    <a href=#><img src="img/LogoTransparent.png"></a> 
+                    <a href="index.html"><img src="img/LogoTransparent.png"></a> 
                 </div>
                 <div id="nav-bar-right">
-                    <a href=#><img src="img/PersonsIconReal.png"></a> 
+                    <a href="SignUp.html"><img src="img/PersonsIconReal.png"></a> 
                 </div>
             </nav>
             <form name="myform" onSubmit="return save()">
@@ -79,12 +77,14 @@
                var search = document.getElementById("searchbar").value;
                search= JSON.stringify(search);
                let playlist=JSON.parse(sessionStorage.getItem("p"));
-                getSearchResults(search, playlist);
+                let answers= getSearchResults(search, playlist);
                 document.write("<h1>Search:</h1>");
                 document.write(search + "<br><br>");
-                let answer =JSON.parse(getSearchResults(search, playlist));  
+                let answer = JSON.parse(answers[0]); 
+                let id = answers[1]; 
                 document.write(answer + "\t\t"); //I want it to write the answer from my function
-                document.write("<a href='SongLists.html'><button onclick=\"getSongs_PopPlaylist('search')\">See Songs</button></a>");
+                document.write(id + "\t\t");
+                document.write("<a href='SongLists.html'><button onclick=button onclick=\"saveID('1')\">See Songs</button></a>");
             }
             </script>
         </div> 
