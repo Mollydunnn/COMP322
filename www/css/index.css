@@ -40,15 +40,65 @@
 }*/
 
 .app {
-    background-color: #000000;
+    background-color: black;
 }
 
 body {
-    background-color: #000000;
     margin: 0px;
     padding: 0px;
     width: 100%;
     height: 100%;
+    
+    background-image: url("../img/UI/FrameBackground.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+nav{
+    width: 100%;
+    margin: 0px;
+    box-sizing: border-box;
+    display: flex;
+    padding: 1em 0 2em 0;
+}
+
+nav a{
+    text-decoration: none;
+    margin: 0 40px;
+  }
+
+#nav-bar-left{
+    padding-top:1%;
+    width: 25%;
+}
+.Logo{
+    width: 50%;
+    height: auto;
+
+}
+#mylogo{
+    width: 9.5%;
+    padding-top:0px;
+    margin-top:0px;
+}
+
+#nav-bar-right{
+    padding-top:1%;
+    width: 25%;
+}
+#nav-bar-left img{
+    height: auto;/*may need to fix this height*/
+    width: 40%;
+    border-radius: 3px;
+    padding:4px;
+    background: transparent;
+}
+#nav-bar-right img{
+    height: auto;/*may need to fix this height*/
+    width: 40%;
+    border-radius: 3px;
+    padding:4px;
+    background: transparent;
 }
 
 #Front {
@@ -147,15 +197,7 @@ button {
     color: white;
 }
 
-.event.listening {
-    background-color: #000000;
-    display: block;
-}
 
-.event.received {
-    background-color: #000000;
-    display: none;
-}
 
 #deviceready.ready .event.listening {
     display: none;
@@ -186,7 +228,7 @@ button {
     font-weight: bolder;
     font-size: 23px;
     color: white;
-    background-color: #E92EFB;
+    background-color: transparent;
     text-align: center;
     border-radius: 3px;
     /*box-shadow: 0 0 0 2pt #E92EFB; /*trying this, idk if it will work*/
@@ -218,7 +260,7 @@ button {
     display: inline-block;
     float: none;
     border-radius: 3px;
-    background: #440BD4;
+    background: transparent;
     padding: 0px
 }
 
@@ -238,7 +280,7 @@ button {
 }
 
 #Playlist {
-    background-color: #000000;
+    background-color: transparent;
 }
 
 #Playlist li {
@@ -246,7 +288,7 @@ button {
     padding: 10px;
     display: inline-block;
     border-radius: 20px;
-    background: #440BD4;
+    background: transparent;
     width: 200px;
     height: 300px;
     vertical-align: bottom;
@@ -304,7 +346,7 @@ button {
 
 .container button {
     border: none;
-    background-color: white;
+    background-color: transparent;
     outline: none;
     width: 50%;
     font-size: 25px;
@@ -326,7 +368,7 @@ button {
     width: 5%;
     height: auto;
     font-size: 25px;
-    background-color: white;
+    background-color: transparent;
     color: black;
     border: none;
     border-radius: 5%;
@@ -390,7 +432,8 @@ input[type="password"] {
 /* Classes */
 
 .Playlist {
-    background-color: #000000 width: 100%;
+    background-color: transparent ;
+    width: 100%;
     height: 100%;
 }
 
@@ -430,7 +473,7 @@ input[type="password"] {
 
 .Playlist ul li button {
     text-align: center;
-    background-color: blue;
+    background-color: navy;
     color: white;
     font-weight: bolder;
     font-size: medium;
@@ -442,7 +485,7 @@ input[type="password"] {
 /*Songs*/
 
 .Songs {
-    background-color: #000000;
+    background-color: transparent;
     width: 100%;
     height: 100%;
 }
@@ -495,7 +538,7 @@ input[type="password"] {
 
 .Songs ul li button {
     text-align: center;
-    background-color: blue;
+    background-color: transparent;
     color: white;
     margin-left: 5%;
     padding: 2% 4%;
@@ -527,4 +570,11 @@ input[type="password"] {
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+#play{
+    background-color: navy;
+    text-decoration: none;
+    color: white;
+
 }

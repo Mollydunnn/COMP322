@@ -95,59 +95,63 @@ function onDeviceReady() {
     }); //for testing purposes(run in browser platform with dev tools for debug)
 
 
-<<<<<<< HEAD
+
     //THis is the the function to keep track of the users and to modify 
     //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
 
 }());
-=======
-<<<<<<< HEAD
+
 
 // Function to get a playlist based on the button clicked, using the ID number
-function saveID() {
-    var id_number = this.value;
-    localStorage["key"] = id_number;
+function saveID(playlistID) {
+    var number = JSON.stringify(playlistID);
+    console.log(number);
+    sessionStorage.setItem("number", number);
 }
 
 // Function to get the songs associated with a given playlist
-function getSongs(Playlist) {
-=======
-}()); 
->>>>>>> 7d111a8756a0af1778756160f22fac588dc58811
+
 
 
 
 //----------------SongLists.html pulls in names of all songs on Playlist - Emily
 //BrandProfile = list of brands (equivalent to 'Playlists')
 //BrandProfile[i] would be each playlist, child of this would be songs of playlists
-function getSongs_PopPlaylist(Playlist) {
->>>>>>> 84bc1c3f1ffca31c21f933df23034f2b0319a7fb
-    console.log(typeof(Playlist)); //Playlist represents specific playlist
-    console.log(typeof(Playlist.Name));
+function getSongs(Playlist, number) {
+    console.log(typeof(Playlist)); 
     console.log(Playlist);
-    sessionStorage.setItem("songs", JSON.stringify(Playlist));
-    let doc = document.getElementById('songs-list-container');
-    doc.innerHTML += `
-        <h2>${Playlist[1]}</h2>
-        <a href="currentSong.html">Play</a>
-        `
+    
         //Playlist[0]=ID, Playlist[1]=Name, Playlist[2:]=Songs
-    for (var i = 2; i < Playlist.length; i++) {
-        console.log(typeof(Playlist[i])); //these will be the songs
-        var number = JSON.stringify(Playlist[i].Number); //Number attribute of each song
-        console.log(number);
-        doc.innerHTML += /* innerHTML begin */ ` 
-            <ul>
-            <li>
-                <img src="img/${Playlist[i].Image}">
-                <h3>${Playlist[i].Name}</h3>
-                <button onclick="playAudio('${Playlist[i].Song}')"></button>
-                <p>${Playlist[i].Artist}<p>
-            </li>
-            </ul>
-            ` /* innerHTML end */
-    }
+        for(var j=0; j<Playlist.length; j++){//loops throug
+            if(number===Playlist[j].ID){
+                console.log(Playlist[j]);
 
+                let doc = document.getElementById('songs-list-container');
+                doc.innerHTML += `
+                <h2>${Playlist[j]. Name}</h2>
+                <a href="currentSong.html" id="play">Play</a>
+                `
+                
+                let play=Playlist[j];
+                sessionStorage.setItem("songs", JSON.stringify(play));
+                console.log(typeof(play));
+                for(i in play) {
+                    if(play[i].Name!==undefined){
+                    console.log(); //these will be the songs
+                    var number = JSON.stringify(); //Number attribute of each song
+                    console.log(number);
+                    doc.innerHTML += /* innerHTML begin */ ` 
+                    <ul>
+                    <li>
+                        <img src="${play[i].Image}">
+                        <h3>${play[i].Name}</h3>
+                        <button onclick="playAudio('${play[i].Song}')"></button>
+                        <p>${play[i].Artist}<p>
+                    </li>
+                    </ul>
+                ` /* innerHTML end */
+            }}}
+}
 }
 //--------------------------------Pull in Playlist song and timer by song-Jaimie
 var timeleft = 60;
@@ -167,7 +171,8 @@ function currentSong(song, i) {
                 clearInterval(timer);
             }
         }, 1000);
-        ele.innerHTML = `<div id= "CurrentSong">
+        if(song.Name!==undefined){
+        ele.innerHTML =  `<div id= "CurrentSong">
     <img src= "${song.Image}">
     <h4 id= "song">${song.Name}</h4>
     <h5 id= "artist">${song.Artist}</h5>
@@ -178,7 +183,7 @@ function currentSong(song, i) {
         <li><p id="drinkCount">Drink Count<br>${song.Number}</p></li> 
     </ul>
 </div>`
-    }, 60000 * (i - 2));
+    }}, 60000 * (i-1));
 }
 
 //------------------------------------------------Search Stuff -Jaimie

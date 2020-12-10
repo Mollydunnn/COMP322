@@ -46,35 +46,17 @@
 
 <script>
     // Plays the song when the corresponding button is clicked
-    function playAudio(song) {
-        path = "songs/"
-        var sound = new Audio(path+song);
-        sound.play();
-    }
-
-    id_number = localStorage["key"];
-    var ref = firebase.database().ref("Playlists");
-    ref.once('value').then((snapshot) => {
-        snapshot.forEach(function(childSnapshot) {
-            if (id_number===childSnapshot.val().ID) {
-                let Playlist = childSnapshot;
-            }
-        })
-    Playlist = Object.values(Playlist);
-    console.log(Playlist);
-    console.log(Playlist[0]);
-    getSongs(Playlist);
+    var playlistid= sessionStorage.getItem("number");
+    var newid = JSON.parse(playlistid);
+    console.log(newid);
+    var ref = firebase.database().ref('Playlists').orderByChild("Number");
+        ref.once('value')
+        .then((snapshot) => {
+        let playlist = snapshot.val(); 
+        playlist = Object.values(playlist);
+        getSongs(playlist, newid);
     })
-
-    /*
-    ref.once('value').then((snapshot) => {
-        let Playlist = snapshot.val();
-        Playlist = Object.values(Playlist);
-        console.log(Playlist);
-        console.log(Playlist[0]);
-        getSongs(Playlist);
-    })
-    */
+    
 </script>
 
 <div class="Songs" id="songs-list-container">

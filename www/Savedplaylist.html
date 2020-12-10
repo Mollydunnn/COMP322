@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' ; script-src 'unsafe-inline' * ; media-src *; img-src *;">
     <meta charset="UTF-8">
     <title>Saved Playlists</title>
-    <link rel="stylesheet" type="text/css" href="css/SavedPlaylist.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 
 <body>
@@ -40,7 +40,7 @@
                     <li> 
                         <img alt= "Top" src= "img/topHits.jpg" style= "width: 225px; height: 225px">
                         <p>Today's Top Hits</p>
-                        document.write("<a href='SongLists.html'><button onclick="getSongs_PopPlaylist('search')">See Songs</button></a>");
+                        <a href='SongLists.html'><button onclick="saveID('2')">See Songs</button></a>
                     </li>
 
     <!-- <script>
@@ -56,13 +56,7 @@
             </script> -->
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>
-    <img src="img/UI/Front.png" id="Front">
-    <img src="img/UI/Frame.png" id="Frame">
-    <img src="img/Playlist/PlayScreen.png" id="Screen">
-    <img src="img/Playlist/List.png" id="List">
-    <a href="currentSong.html"><img src="img/UI/ButOkay.png" id="ButOkay"></a>
-    <a href="index.html"><img src="img/UI/ButCancel.png" id="ButCancel"></a>
-
+    
 </body>
 
 </html>
