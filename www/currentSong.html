@@ -13,36 +13,14 @@
     
 </head>
 <body>
-            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
-            <!-- TODO: Add SDKs for Firebase products that you want to use
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
-            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
-            
-            <!--<script>
-                  var ref = firebase.database.ref('Playlists').orderByChild("Number");
-                    ref.on('value', function(snapshot){
-                    snapshot.forEach(function(childSnapshot) {
-                    let currentSong= snapshot.val();   
-                    console.log(currentSong);
-                    })});
-              </script>-->
-              <!--<script>
-                  database.ref('users/'+Number).once('value').then(function(snapshot) {
-                    var prospectId = snapshot.key ;
-                    snapshot.forEach(function(snapshot1) {
-                console.log(snapshot1.key); // e.g. "http://..."
-                snapshot.forEach(function(snapshot2) {
-                console.log(childSnapshot.key); // e.g. "20170116"
-                childSnapshot.forEach(function(snapshot3) {
-                console.log(grandchildSnapshot.key); // e.g. "-Kb9...gkE"
-                console.log(grandchildSnapshot.val().districtId); // "pne"
-                    });
-                });
-  });
-});
-              </script>-->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
     <div class="app">
         <h1>Apache Cordova</h1>
         <div id="deviceready" class="blink">
@@ -52,7 +30,7 @@
     </div>
     <nav>
         <div id="nav-bar-left">
-            <a href=#><img src="img/SearchIcon.png"></a>
+            <a href="SearchPage.html"><img src="img/SearchIcon.png"></a>
         </div>
         <div class="Logo">
             <a href="index.html"><img src="img/LogoTransparent.png"></a> 
@@ -62,20 +40,30 @@
         </div>
     </nav>
     <div id="current-song-container">
-    <div id= "CurrentSong">
+    <!--<div id= "CurrentSong">
         <img src= "img/mileycyrus.jpg">
         <h4 id= "song">Edge of Midnight(Midnight Sky Remix)</h4>
         <h5 id= "artist"> Miley Cyrus ft. Stevie Nicks</h5>
-        
+        <span id="time">1:00</span>
         <ul id="SongControls">
             <li><p id="songNo">Song No.<br>  1</p></li>
             <li><audio controls id="audio" src="songs/EdgeOfSeventeen.mp3" ></audio></li>
             <li><p id="drinkCount">Drink Count<br>   1</p></li> 
     </ul>
-    </div>
-<!--<span id="time">1:00</span>-->
+    </div>-->
+<!---->
 </div>
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>
+    <!--<script src="js/index.js"></script>-->
+    <script>
+        var songs = JSON.parse(sessionStorage.getItem("songs"));
+        console.log(songs);
+        for(var i=2; i<songs.length; i++){
+            currentSong(songs[i], i);
+        }
+        
+        //this is meant to grab the list of songs and order them by their Number to pass to displaying them track by track
+    </script>
 </body>
 </html>

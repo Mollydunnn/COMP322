@@ -47,7 +47,8 @@ function onDeviceReady() {
       const btnLogIn = document.getElementById('btnLogIn');
       const btnSignUp = document.getElementById('btnSignUp');
       const btnLogOut = document.getElementById('btnLogOut');
-
+      const btnSavedPlaylist= document.getElemtentById('btnSavedPlaylist');
+      //------------------------------------------------user authentication stuff-Jaimie
       //here(all below are user authentication functions)
     btnLogIn.addEventListener('click', e=> { //CONSOLE ERROR "Uncaught TypeError: Cannot read property 'addEventListener' of null"
         const email = txtEmail.value;
@@ -73,63 +74,31 @@ function onDeviceReady() {
         firebase.auth().signOut();
     });
 
-    firebase.auth().onAuthStateChanged(firebaseUser =>{
+    firebase.auth().onAuthStateChanged(firebaseUser =>{//hides and shows the buttons accordingly
         if(firebaseUser){
-            //console.log(firebaseUser);
-            //console.log("User is logged in successfully.");
-            //btnlogOut.remove('hide');
+            console.log(firebaseUser);
+            //hide sign up and log in button here
+            btnLogOut.style.display= "block";
+            btnSignUp.style.display= "none";
+            btnLogIn.style.display= "none";
+            //show the saved playlist button
+            btnSavedPlaylist.style.display= "block";
+            console.log("User is logged in successfully.");
         } else{
-            //console.log("User is not logged in.");
-            //btnlogOut.classList.add('hide');
+            btnLogOut.style.display= "none";
+            btnSignUp.style.display= "block";
+            btnLogIn.style.display= "block";
+            btnSavedPlaylist.style.display= "none";
+            //hide logout button here
+            console.log("User is not logged in.");
         }
-    });
+    });//for testing purposes(run in browser platform with dev tools for debug)
 
-
-
+  
 //THis is the the function to keep track of the users and to modify 
 //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
 
-}()); //CONSOLE ERROR "Uncaught TypeError: Cannot read property 'addEventListener' of null"
-
-/*storageRef.child('img/LogoTransparent.png').getDownloadURL().then(function(url) {
-    var img = document.getElementById('mylogo');
-    img.src = url;
-}, function(error) {});*/
-
-document.addEventListener("deviceready", function() {
-    var oneMinute = 60;
-    var display = document.querySelector('#time');
-    startTimer(oneMinute, display);
-}, false);
-
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-   
-}
-
-/*function currentlyPlaying(){
-    let ele = document.getElementById("product-page-container");
-    ele.innerHTML = ``
-}*/
-/*
-    
-//THis is the the function to keep track of the users and to modify 
-//ensures the user is saved as a user when they sign up and confirms when they log in that they exist
-*/
-
+<<<<<<< HEAD
 
 // Function to get a playlist based on the button clicked, using the ID number
 function saveID() {
@@ -139,11 +108,24 @@ function saveID() {
 
 // Function to get the songs associated with a given playlist
 function getSongs(Playlist) {
+=======
+}()); 
+
+
+
+//----------------SongLists.html pulls in names of all songs on Playlist - Emily
+//BrandProfile = list of brands (equivalent to 'Playlists')
+//BrandProfile[i] would be each playlist, child of this would be songs of playlists
+function getSongs_PopPlaylist(Playlist) {
+>>>>>>> 84bc1c3f1ffca31c21f933df23034f2b0319a7fb
     console.log(typeof(Playlist)); //Playlist represents specific playlist
     console.log(typeof(Playlist.Name));
+    console.log(Playlist);
+    sessionStorage.setItem("songs" , JSON.stringify(Playlist));
     let doc = document.getElementById('songs-list-container');
     doc.innerHTML += `
         <h2>${Playlist[1]}</h2>
+        <a href="currentSong.html">Play</a>
         `
     //Playlist[0]=ID, Playlist[1]=Name, Playlist[2:]=Songs
     for (var i=2; i<Playlist.length; i++) {
@@ -155,10 +137,61 @@ function getSongs(Playlist) {
             <li>
                 <img src="img/${Playlist[i].Image}">
                 <h3>${Playlist[i].Name}</h3>
-                <button onclick="playAudio('${Playlist[i].Song}')">></button>
+                <button onclick="playAudio('${Playlist[i].Song}')"></button>
                 <p>${Playlist[i].Artist}<p>
             </li>
             </ul>
             ` /* innerHTML end */
     }
+    
 }
+//--------------------------------Pull in Playlist song and timer by song-Jaimie
+var timeleft=60;
+function currentSong(song, i){
+    let ele=document.getElementById('current-song-container');
+    
+    //would like to pull in the playlist emily already found in the above code, then I go track by track playing them, q is now that I have it going through the tracks, how do I make it wait til the song is done before moving on(i could do this by just delayin git 60 seconds but I would like it to actualy go off the song)
+    //need to save the name and then have this triggered by an onclick from Playlist
+    setTimeout(function(){
+        var count=59;
+        var timer= setInterval(function(){
+            
+            document.getElementById('time').innerHTML=count;
+            count--;
+            if(count<=0){
+                clearInterval(timer);
+            }
+          }, 1000);
+    ele.innerHTML = `<div id= "CurrentSong">
+    <img src= "${song.Image}">
+    <h4 id= "song">${song.Name}</h4>
+    <h5 id= "artist">${song.Artist}</h5>
+    <ul id="SongControls">
+        <li><p id="songNo">Song No.<br>${song.Number}</p></li>
+        <li><audio id="audio" autoplay src=${song.Song}></audio></li>
+        <li><span id="time">60</span></li>
+        <li><p id="drinkCount">Drink Count<br>${song.Number}</p></li> 
+    </ul>
+</div>`
+}, 60000*(i-2));
+}
+
+//------------------------------------------------Search Stuff -Jaimie
+function getSearchResults(search, playlist){
+    console.log(playlist);
+    console.log(search);
+    //now pull the info from DB and iterate through playlists to compare names wiht searchbar valie, then catipult it to the getSongs_PopPlaylist to pull in that page with the correct info
+    for(let i=0; i< playlist.length; i++){
+        console.log(playlist[i].ID);
+        let playlistName= JSON.stringify(playlist[i].Name);
+        if(search===playlistName){
+            console.log(playlist[i].Name);
+            return JSON.stringify(playlist[i].Name);
+            //passes that playlist to the funciton to display its info on the page
+    }
+    }
+    
+}
+
+
+//---------------------------------------------------

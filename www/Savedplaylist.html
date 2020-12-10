@@ -8,7 +8,15 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
     </head>
     <body>
-        <div class="app">
+        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+         <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+       
+    <div class="app">
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
@@ -28,7 +36,12 @@
         
                 <div class="Playlist">
                 <ul>
-                    <li>
+                    <li> 
+                        <img alt= "Top" src= "img/topHits.jpg" style= "width: 225px; height: 225px">
+                        <p>Today's Top Hits</p>
+                        document.write("<a href='SongLists.html'><button onclick="getSongs_PopPlaylist('search')">See Songs</button></a>");
+                    </li>
+                    <!-- <li>
                         <img alt="Disney" src="img/Disneyplaylist.jpg" style="width: 225px; height: 225px;">
                         <p> Disney Playlist</p>
                         <button type="button" class="playButton">PLAY</button>
@@ -51,11 +64,22 @@
                         <img alt="Gym" src="img/gym.jpg" style="width: 225px; height: 225px;">
                         <p>Gym Playlist Created</p> 
                         <button type="button" class="playButton">PLAY</button>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
-            
+            <!-- <script>
+                var ref = firebase.database().ref('Playlists').orderByChild("Name");
+                ref.once('value')
+                .then((snapshot) => {
+                let playlist = snapshot.val(); 
+                playlist = Object.values(playlist);
+                console.log(playlist);
+                sessionStorage.setItem("p", JSON.stringify(playlist));
+                //pulls from database passes all the playlists and the name that was searched for 
+             })
+            </script> -->
             <script src="cordova.js"></script>
+            <script src="js/index.js"></script>
            
     </body>
 </html>
