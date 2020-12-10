@@ -170,6 +170,7 @@ nav a{
     }
 }*/
 
+
 h1 {
     font-size: 24px;
     font-weight: normal;
@@ -178,6 +179,7 @@ h1 {
     overflow: visible;
     padding: 0px;
     text-align: center;
+    color: white;
 }
 
 audio {
@@ -315,6 +317,7 @@ button {
 }
 
 #CurrentSong {
+    padding-top: 3%;
     color: white;
     font-size: 20px;
     text-align: center;
@@ -327,7 +330,9 @@ button {
     margin-left: auto;
     margin-right: auto;
 }
-
+#current-song-container{
+    margin-top:200px;
+}
 .container {
     width: 100%;
     height: auto;
@@ -560,7 +565,7 @@ input[type="password"] {
 }
 
 #SongControls audio {
-    width: 95%;
+    width: 90%;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
@@ -571,4 +576,18 @@ input[type="password"] {
     text-decoration: none;
     color: white;
 
+}
+
+#form{
+    display: block;
+    justify-content: center;
+}
+#form input{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#song-container{
+    padding-bottom: 200px;
 }
