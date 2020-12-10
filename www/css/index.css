@@ -325,13 +325,13 @@ button {
 }
 
 #CurrentSong img {
-    width: 80%;
+    width: 60%;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 #current-song-container{
-    margin-top:200px;
+    margin-top:300px;
 }
 .container {
     width: 100%;
@@ -575,7 +575,7 @@ input[type="password"] {
     background-color: navy;
     text-decoration: none;
     color: white;
-
+    margin: 5px;
 }
 
 #form{
@@ -588,6 +588,6 @@ input[type="password"] {
     margin-right:auto;
 }
 
-#song-container{
-    padding-bottom: 200px;
+#saved-container{
+    margin-bottom:375px;
 }
