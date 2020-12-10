@@ -18,66 +18,50 @@
     under the License.
 -->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src *;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="css/index.css">
-        <script src="cordova.js"></script>
-        
-        <title>Sips and Sounds</title>
-    </head>
-    <body>
-        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
-            <!-- TODO: Add SDKs for Firebase products that you want to use
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src *;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="cordova.js"></script>
+
+    <title>Sips and Sounds</title>
+</head>
+
+<body>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
-            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
-            
-        <div class="app">
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-            <script src="js/index.js"></script>
-            <nav>
-                <div id="nav-bar-left">
-                    <a href="SearchPage.html"><img src="img/SearchIcon.png"></a> 
-                </div>
-                <div id="Logo">
-                    <a href=#><img src="img/LogoTransparent.png"></a> 
-                </div>
-                <div id="nav-bar-right">
-                    <a href="SignUp.html"><img src="img/PersonsIconReal.png"></a>
-                </div>
-            </nav>
-            <div id="Buttons">
-                <br>
-            <ul>
-                <li>
-                    <!--<img src="css/Number1.png">-->
-                    <a href="SongLists.html">Start a New Playlist</a>
-                </li>
-                <li>
-                    <!--<img src="Number3.png">-->
-                    <a href="Savedplaylist.html">Saved Playlists</a>
-                </li>
-                <li>
-                    <!--<img src="Number4.png">-->
-                    <a href="Genre_Select.html">Browse by Genre</a>
-                </li>
-            </ul>
-            </div>
-            <!--<audio id="playpls" src="http://www.soundjay.com/button/beep-07.wav"></audio>-->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
 
-            <!--<button onclick="playPlease()">Play</button>-->
+    <div class="app">
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+        <script src="js/index.js"></script>
+    </div>
 
-            
-            
-            
-    </body>
+    <img src="img/UI/Front.png" id="Front">
+    <img src="img/UI/Frame.png" id="Frame">
+    <img src="img/Main/MainScreen.png" id="Screen">
+    <a href="SignUp.html"><img src="img/Main/ButLogOn.png" id="ButLog"></a>
+    <a href="Genre_Select.html"><img src="img/Main/ButGenOn.png" id="ButGen"></a>
+    <a href="Savedplaylist.html"><img src="img/Main/ButPlayOn.png" id="ButPlay"></a>
+    <img src="img/UI/Vent.png" id="Vent">
+    <!--<audio id="playpls" src="http://www.soundjay.com/button/beep-07.wav"></audio>-->
+
+    <!--<button onclick="playPlease()">Play</button>-->
+
+
+
+
+</body>
+
 </html>

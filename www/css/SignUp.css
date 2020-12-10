@@ -1,0 +1,97 @@
+body {
+    background-color: black;
+}
+
+#Front {
+    position: fixed;
+    top: 6.25%;
+    left: 11.11%;
+    height: 93.75%;
+    width: 77.778%;
+}
+
+#Frame {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+#Screen {
+    position: fixed;
+    top: 12.5%;
+    left: 22.222%;
+    height: 18.75%;
+    width: 55.556%;
+}
+
+#TopFrame {
+    position: fixed;
+    top: 34.375%;
+    left: 22.222%;
+    height: 6.25%;
+    width: 55.556%;
+}
+
+#BottomFrame {
+    position: fixed;
+    top: 43.75%;
+    left: 22.222%;
+    height: 6.25%;
+    width: 55.556%;
+}
+
+#Username {
+    position: fixed;
+    top: 35.15625%;
+    left: 23.611%;
+    height: 4.6875%;
+    width: 52.778%;
+
+    border: none;
+    background-color: #FFF7DF;
+    color: #946E30;
+    font-size: 250%;
+}
+
+#Password {
+    position: fixed;
+    top: 44.53125%;
+    left: 23.611%;
+    height: 4.6875%;
+    width: 52.778%;
+
+    border: none;
+    background-color: #FFF7DF;
+    color: #946E30;
+    font-size: 250%;
+}
+
+#ButLog {
+    position: fixed;
+    top: 53.125%;
+    left: 27.778%;
+    height: 6.25%;
+    width: 16.667%;
+}
+
+#ButCancel {
+    position: fixed;
+    top: 53.125%;
+    left: 55.556%;
+    height: 6.25%;
+    width: 16.667%;
+}
+
+#Vent {
+    position: fixed;
+    top: 59.375%;
+    left: 22.222%;
+    height: 37.5%;
+    width: 55.556%;
+}
+
+::placeholder {
+  color: #946E30;
+}

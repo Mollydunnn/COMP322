@@ -8,19 +8,21 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/currentSong.css">
     <title>Current Song</title>
-    
+
 </head>
+
 <body>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-    
+
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+
     <div class="app">
         <h1>Apache Cordova</h1>
         <div id="deviceready" class="blink">
@@ -28,19 +30,17 @@
             <p class="event received">Device is Ready</p>
         </div>
     </div>
-    <nav>
-        <div id="nav-bar-left">
-            <a href="SearchPage.html"><img src="img/SearchIcon.png"></a>
-        </div>
-        <div class="Logo">
-            <a href="index.html"><img src="img/LogoTransparent.png"></a> 
-        </div>
-        <div id="nav-bar-right">
-            <a href="SignUp.html"><img src="img/PersonsIconReal.png"></a>
-        </div>
-    </nav>
+
+    <img src="img/UI/Front.png" id="Front">
+    <img src="img/UI/Frame.png" id="Frame">
+    <img src="img/Song/SongScreen.png" id="Screen">
+    <img src="img/Song/Count.png" id="Count">
+    <img src="img/Song/ButPause.png" id="ButPause">
+    <img src="img/Song/Timer.png" id="Timer">
+    <a href="index.html"><img src="img/Song/ButBack.png" id="ButBack"></a>
+
     <div id="current-song-container">
-    <!--<div id= "CurrentSong">
+        <!--<div id= "CurrentSong">
         <img src= "img/mileycyrus.jpg">
         <h4 id= "song">Edge of Midnight(Midnight Sky Remix)</h4>
         <h5 id= "artist"> Miley Cyrus ft. Stevie Nicks</h5>
@@ -51,19 +51,20 @@
             <li><p id="drinkCount">Drink Count<br>   1</p></li> 
     </ul>
     </div>-->
-<!---->
-</div>
+        <!---->
+    </div>
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>
     <!--<script src="js/index.js"></script>-->
     <script>
         var songs = JSON.parse(sessionStorage.getItem("songs"));
         console.log(songs);
-        for(var i=2; i<songs.length; i++){
+        for (var i = 2; i < songs.length; i++) {
             currentSong(songs[i], i);
         }
-        
+
         //this is meant to grab the list of songs and order them by their Number to pass to displaying them track by track
     </script>
 </body>
+
 </html>
