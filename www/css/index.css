@@ -170,6 +170,7 @@ nav a{
     }
 }*/
 
+
 h1 {
     font-size: 24px;
     font-weight: normal;
@@ -178,6 +179,7 @@ h1 {
     overflow: visible;
     padding: 0px;
     text-align: center;
+    color: white;
 }
 
 audio {
@@ -315,6 +317,7 @@ button {
 }
 
 #CurrentSong {
+    padding-top: 3%;
     color: white;
     font-size: 20px;
     text-align: center;
@@ -322,12 +325,14 @@ button {
 }
 
 #CurrentSong img {
-    width: 80%;
+    width: 60%;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
-
+#current-song-container{
+    margin-top:300px;
+}
 .container {
     width: 100%;
     height: auto;
@@ -560,7 +565,7 @@ input[type="password"] {
 }
 
 #SongControls audio {
-    width: 95%;
+    width: 90%;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
@@ -570,5 +575,19 @@ input[type="password"] {
     background-color: navy;
     text-decoration: none;
     color: white;
+    margin: 5px;
+}
 
+#form{
+    display: block;
+    justify-content: center;
+}
+#form input{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#saved-container{
+    margin-bottom:375px;
 }

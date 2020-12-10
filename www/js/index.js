@@ -129,7 +129,7 @@ function getSongs(Playlist, number) {
                 let doc = document.getElementById('songs-list-container');
                 doc.innerHTML += `
                 <h2>${Playlist[j]. Name}</h2>
-                <a href="currentSong.html" id="play">Play</a>
+                <a href="currentSong.html" id="play"><button>Click to Play Now</button></a>
                 `
                 
                 let play=Playlist[j];
