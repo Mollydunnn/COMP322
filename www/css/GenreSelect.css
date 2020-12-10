@@ -1,0 +1,99 @@
+body {
+    background-color: black;
+}
+
+#Front {
+    position: fixed;
+    top: 6.25%;
+    left: 11.11%;
+    height: 93.75%;
+    width: 77.778%;
+}
+
+#Frame {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+#Screen {
+    position: fixed;
+    top: 12.5%;
+    left: 22.222%;
+    height: 18.75%;
+    width: 55.556%;
+}
+
+#Marquee {
+    position: fixed;
+    top: 34.375%;
+    left: 19.444%;
+    height: 56.25%;
+    width: 61.111%;
+}
+
+#Hits {
+    position: fixed;
+    top: 40.625%;
+    left: 22.222%;
+    height: 15.625%;
+    width: 27.778%;
+}
+
+#Electro {
+    position: fixed;
+    top: 40.625%;
+    left: 50%;
+    height: 15.625%;
+    width: 27.778%;
+}
+
+#Disco {
+    position: fixed;
+    top: 56.25%;
+    left: 22.222%;
+    height: 15.625%;
+    width: 27.778%;
+}
+
+#Rap {
+    position: fixed;
+    top: 56.25%;
+    left: 50%;
+    height: 15.625%;
+    width: 27.778%;
+}
+
+#Country {
+    position: fixed;
+    top: 71.875%;
+    left: 22.222%;
+    height: 15.625%;
+    width: 27.778%;
+}
+
+#Rock {
+    position: fixed;
+    top: 71.875%;
+    left: 50%;
+    height: 15.625%;
+    width: 27.778%;
+}
+
+#ButOkay {
+    position: fixed;
+    top: 92.1875%;
+    left: 27.778%;
+    height: 6.25%;
+    width: 16.667%;
+}
+
+#ButCancel {
+    position: fixed;
+    top: 92.1875%;
+    left: 55.556%;
+    height: 6.25%;
+    width: 16.667%;
+}

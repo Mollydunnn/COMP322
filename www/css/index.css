@@ -16,9 +16,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
 * {
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
+
 
 /*body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold 
@@ -35,15 +38,73 @@
     text-transform:uppercase;
     width:100%;
 }*/
-.app{
+
+.app {
     background-color: #000000;
 }
+
 body {
     background-color: #000000;
-    margin:0px;
-    padding:0px;
+    margin: 0px;
+    padding: 0px;
     width: 100%;
     height: 100%;
+}
+
+#Front {
+    position: fixed;
+    top: 6.25%;
+    left: 11.11%;
+    height: 93.75%;
+    width: 77.778%;
+}
+
+#Frame {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+#Screen {
+    position: fixed;
+    top: 12.5%;
+    left: 22.222%;
+    height: 18.75%;
+    width: 55.556%;
+}
+
+#ButLog {
+    position: fixed;
+    top: 37.5%;
+    left: 22.222%;
+    height: 6.25%;
+    width: 55.556%;
+}
+
+#ButGen {
+    position: fixed;
+    top: 43.75%;
+    left: 22.222%;
+    height: 6.25%;
+    width: 55.556%;
+}
+
+#ButPlay {
+    position: fixed;
+    top: 50%;
+    left: 22.222%;
+    height: 6.25%;
+    width: 55.556%;
+}
+
+#Vent {
+    position: fixed;
+    top: 59.375%;
+    left: 22.222%;
+    height: 37.5%;
+    width: 55.556%;
 }
 
 
@@ -58,96 +119,51 @@ body {
 }*/
 
 h1 {
-    font-size:24px;
-    font-weight:normal;
+    font-size: 24px;
+    font-weight: normal;
     font-family: 'Secular One', sans-serif;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
+    margin: 0px;
+    overflow: visible;
+    padding: 0px;
+    text-align: center;
 }
-audio{
-   color: #E92EFB;
+
+audio {
+    color: #E92EFB;
 }
+
 button {
-    border:none;
-    background-color:transparent;
-    outline:none;
+    border: none;
+    background-color: transparent;
+    outline: none;
     color: white;
 }
 
-
 .event.listening {
-    background-color:#000000;
-    display:block;
+    background-color: #000000;
+    display: block;
 }
 
 .event.received {
-    background-color:#000000;
-    display:none;
+    background-color: #000000;
+    display: none;
 }
 
-#deviceready.ready .event.listening { display: none; }
-#deviceready.ready .event.received { display: block; }
-
-
-
-nav{
-    width: 100%;
-    margin: 0px;
-    box-sizing: border-box;
-    display: flex;
-    padding: 1em 0 2em 0;
+#deviceready.ready .event.listening {
+    display: none;
 }
 
-nav a{
-    text-decoration: none;
-    margin: 0 40px;
-  }
-
-#nav-bar-left{
-    padding-top:1%;
-    width: 25%;
-}
-.Logo{
-    width: 50%;
-    height: auto;
-
-}
-#mylogo{
-    width: 9.5%;
-    padding-top:0px;
-    margin-top:0px;
+#deviceready.ready .event.received {
+    display: block;
 }
 
-#nav-bar-right{
-    padding-top:1%;
-    width: 25%;
-}
-#nav-bar-left img{
-    height: auto;/*may need to fix this height*/
-    width: 40%;
-    border-radius: 3px;
-    padding:4px;
-    background: #E92EFB;
-}
-#nav-bar-right img{
-    height: auto;/*may need to fix this height*/
-    width: 40%;
-    border-radius: 3px;
-    padding:4px;
-    background: #E92EFB;
-}
-
-
-
-
-#Buttons{
+#Buttons {
     width: 100%;
     height: 55%;
     text-align: center;
 }
-#Buttons ul li{
+
+#Buttons ul li {
     height: 12%;
     list-style-type: none;
     padding-right: 50px;
@@ -155,7 +171,7 @@ nav a{
     text-align: center;
 }
 
-#Buttons ul li a{
+#Buttons ul li a {
     text-decoration: none;
     padding: 4px;
     padding-bottom: 7px;
@@ -167,19 +183,19 @@ nav a{
     border-radius: 3px;
     /*box-shadow: 0 0 0 2pt #E92EFB; /*trying this, idk if it will work*/
     /*background-color: #E92EFB;*/
-    
 }
-#Buttons li img{
+
+#Buttons li img {
     height: 35px;
     width: auto;
     padding-right: 10px;
-
 }
 
-#Buttons a.visited{
-    color:#440BD4;
+#Buttons a.visited {
+    color: #440BD4;
 }
-#Featured{
+
+#Featured {
     width: 100%;
     display: inline-block;
     float: none;
@@ -188,20 +204,23 @@ nav a{
     font-size: 21px;
     color: white;
 }
-#Featured ul{
+
+#Featured ul {
     width: 44%;
     display: inline-block;
-    float:none;
+    float: none;
     border-radius: 3px;
     background: #440BD4;
-    padding:0px
+    padding: 0px
 }
-#Featured li{
+
+#Featured li {
     list-style-type: none;
-    display:inline-block;
+    display: inline-block;
     padding: 2px;
 }
-#Featured img{
+
+#Featured img {
     width: 22px;
     height: 24px;
     min-height: 10px;
@@ -209,10 +228,12 @@ nav a{
     margin: 0px;
     padding: 0px;
 }
-#Playlist{
+
+#Playlist {
     background-color: #000000;
 }
-#Playlist li{
+
+#Playlist li {
     list-style-type: none;
     padding: 10px;
     display: inline-block;
@@ -221,57 +242,62 @@ nav a{
     width: 200px;
     height: 300px;
     vertical-align: bottom;
-    color:white;
+    color: white;
     font-family: 'Arial';
-    font-weight:bold;
+    font-weight: bold;
 }
-#Playlist li a{
+
+#Playlist li a {
     width: 100%;
-    text-decoration:none;
-    color:white;
+    text-decoration: none;
+    color: white;
     font-family: 'Arial';
-    font-weight:bold;
+    font-weight: bold;
     word-wrap: break-word;
 }
-#Playlist li img{
+
+#Playlist li img {
     height: 200px;
     width: 100%;
     text-align: center;
-    padding-top:30px;
-
+    padding-top: 30px;
 }
-#userName{
+
+#userName {
     width: 50%;
-    float:left;
+    float: left;
     display: inline block;
     color: white;
 }
 
-#CurrentSong{
-    color:white;
+#CurrentSong {
+    color: white;
     font-size: 20px;
-    text-align:center;
+    text-align: center;
     width: 100%;
 }
-#CurrentSong img{
+
+#CurrentSong img {
     width: 80%;
-    display:block;
+    display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.container{
-    width:100%;
+.container {
+    width: 100%;
     height: auto;
     color: #E92EFB;
 }
-.container p{
-   margin-left: 45%;
+
+.container p {
+    margin-left: 45%;
 }
+
 .container button {
     border: none;
-    background-color:white;
-    outline:none;
+    background-color: white;
+    outline: none;
     width: 50%;
     font-size: 25px;
     text-align: center;
@@ -281,13 +307,14 @@ nav a{
     color: black;
     margin-bottom: 30px;
     border-radius: 5%;
- }
+}
 
- .nav {
+.nav {
     width: 100%;
     height: auto;
 }
-.nav button{
+
+.nav button {
     width: 5%;
     height: auto;
     font-size: 25px;
@@ -296,7 +323,8 @@ nav a{
     border: none;
     border-radius: 5%;
 }
-.nav img{
+
+.nav img {
     width: 30%;
     height: auto;
     border-radius: 5%;
@@ -306,23 +334,25 @@ nav a{
     margin-right: auto;
 }
 
+
 /*Login-Jaimie*/
-.container p{
+
+.container p {
     margin: 0;
     padding: 0;
     font-weight: bold;
 }
 
-.container input{
-    width:100%;
+.container input {
+    width: 100%;
     margin-bottom: 30px;
 }
 
-.container input[type="email"], input[type="password"]
-{
+.container input[type="email"],
+input[type="password"] {
     border: none;
     outline: none;
-    background-color:white;
+    background-color: white;
     border-radius: 10px;
     height: 35px;
     color: #c24cf6;
@@ -332,10 +362,12 @@ nav a{
     margin-left: auto;
     margin-right: auto;
 }
-input[type="email"], input[type="password"]{
+
+input[type="email"],
+input[type="password"] {
     border: none;
     outline: none;
-    background-color:white;
+    background-color: white;
     border-radius: 10px;
     height: 35px;
     color: #c24cf6;
@@ -345,298 +377,144 @@ input[type="email"], input[type="password"]{
     margin-left: auto;
     margin-right: auto;
 }
-/*Genre Select*/
-img.logo {
-    position: fixed;
-    left: 50%;
-    top: 2.5%;
-    width: 50%;
-    transform: translate(-50%, 0);
-}
 
-div.fixed {
-    position: fixed;
-    width: 100%;
-    text-align: center;
-}
-
-div.top {
-    height: 20%;
-    top: 0;
-    left: 0;
-    background-color: #231F20;
-}
-
-div.bottom {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: 0;
-    bottom: 8%;
-    height: 120px;
-    background-color: #231F20;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='105' viewBox='0 0 80 105'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='death-star' fill='%23373233' fill-opacity='0.4'%3E%3Cpath d='M20 10a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm15 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zM20 75a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zm30-65a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm0 65a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zM35 10a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zM5 45a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zm60 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    color: #c24cf6;
-    font-family: rockwell;
-    font-size: 84px;
-    border-style: solid none solid none;
-    border-width: 15px;
-    border-color: #E92EFB;
-}
-
-.fixbtn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    border: none;
-    color: white;
-    background-color: #E92EFB;
-    font-size: 72px;
-    cursor: pointer;
-    border-radius: 16px;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto;
-    background-color: #231F20;
-    position: absolute;
-    top: 20%;
-    width: 98.4%;
-}
-
-.btn {
-    border: none;
-    color: white;
-    font-family: rockwell;
-    font-size: 36px;
-    cursor: pointer;
-    border-radius: 16px;
-    height: 360px;
-}
-a{
-    text-decoration: none;
-    color: white;
-    font-family: rockwell;
-    font-size: 20px;
-}
-
-.hype {
-    background-color: #7fff00;
-    color: black;
-}
-
-.rock {
-    background-color: #0310EA;
-}
-
-.hits {
-    background-color: #FF1493;
-}
-
-.rap {
-    background-color: #c24cf6;
-}
-
-.thro {
-    background-color: #FFFF66;
-    color: black;
-}
-
-.ctry {
-    background-color: #fc6e22;
-    color: black;
-}
-/*Playlist*/
-h1 {
-    font-size:24px;
-    font-weight:normal;
-    font-family: 'Secular One',sans-serif;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
-}
-
-
-
-
-
-a {
-    text-decoration: none;
-    color: white;
-    font-family: rockwell;
-    font-size: 20px;
-}
-
-.fixbtn {
-    position: fixed;
-    border: none;
-    color: white;
-    background-color: #E92EFB;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 16px;
-    width: 30px;
-    height: 30px;
-}
-nav {
-    width: 100%;
-    margin: 0px;
-    box-sizing: border-box;
-    display: flex;
-    padding: 1em 0 2em 0;
-}
-nav a {
-    text-decoration: none;
-    margin: 0 40px;
-}
-#nav-bar-left {
-    width: 25%;
-}
-
-#nav-bar-right {
-    width: 25%;
-    padding-right:10px;
-}
-#nav-bar-left img {
-    height: auto;/*may need to fix this height*/
-    width: 40%;
-    border-radius: 3px;
-    padding:4px;
-    background: #E92EFB;
-}
-#nav-bar-right img {
-    height: auto;/*may need to fix this height*/
-    width: 40%;
-    border-radius: 3px;
-    padding:4px;
-    background: #E92EFB;
-}
-#Logo img {
-    width: 80%;
-    text-align: center;
-}
 
 /* Classes */
+
 .Playlist {
-    background-color:#000000
-    width:100%;
-    height:100%;
+    background-color: #000000 width: 100%;
+    height: 100%;
 }
+
 .Playlist h1 {
-    text-align:center;
-    font-family: 'Secular One',sans-serif;
-    color:white;
+    text-align: center;
+    font-family: 'Secular One', sans-serif;
+    color: white;
 }
+
 .Playlist ul {
-    padding:0;
-    margin-left:1em;
-    display:block;
+    padding: 0;
+    margin-left: 1em;
+    display: block;
 }
+
 .Playlist ul li {
-    list-style-type:none;
-    margin:1px 0 0 0;
-    padding:10%;
-    display:inline-block;
+    list-style-type: none;
+    margin: 1px 0 0 0;
+    padding: 10%;
+    display: inline-block;
 }
+
 .Playlist ul li img {
-    width:40%;
-    height:40%;
-    float:left;
+    width: 40%;
+    height: 40%;
+    float: left;
 }
+
 .Playlist ul li p {
-    display:inline-block;
-    color:white;
-    font-family:'Roboto',sans-serif;
-    font-size:large;
-    width:40%;
-    margin-left:5%;
+    display: inline-block;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    width: 40%;
+    margin-left: 5%;
 }
+
 .Playlist ul li button {
-    text-align:center;
-    background-color:blue;
-    color:white;
-    font-weight:bolder;
-    font-size:medium;
-    width:20%;
-    margin-left:5%;
+    text-align: center;
+    background-color: blue;
+    color: white;
+    font-weight: bolder;
+    font-size: medium;
+    width: 20%;
+    margin-left: 5%;
 }
+
+
 /*Songs*/
+
 .Songs {
-    background-color:#000000;
+    background-color: #000000;
     width: 100%;
     height: 100%;
 }
+
 .Songs h2 {
-    color:white;
-    font-family: 'Secular One',sans-serif;
+    color: white;
+    font-family: 'Secular One', sans-serif;
     font-size: x-large;
     text-align: center;
 }
+
 .Songs ul {
-    padding:0;
-    margin-left:1em;
-    display:block;
+    padding: 0;
+    margin-left: 1em;
+    display: block;
 }
+
 .Songs ul li {
     list-style-type: none;
-    margin:1px 0 0 0;
-    padding:0;
-    display:inline-block;
+    margin: 1px 0 0 0;
+    padding: 0;
+    display: inline-block;
 }
+
 .Songs ul li img {
     width: 20%;
     height: 20%;
-    margin-top:5%;
+    margin-top: 5%;
     float: left;
 }
+
 .Songs ul li h3 {
-    display:inline-block;
-    color:white;
-    font-family:'Roboto',sans-serif;
-    font-size:large;
-    width:40%;
-    margin-left:5%;
+    display: inline-block;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    width: 40%;
+    margin-left: 5%;
 }
+
 .Songs ul li p {
-    display:inline-block;
-    color:white;
-    font-family:'Roboto',sans-serif;
+    display: inline-block;
+    color: white;
+    font-family: 'Roboto', sans-serif;
     font-size: medium;
     width: 30%;
     height: 10%;
     margin-left: 5%;
 }
+
 .Songs ul li button {
-    text-align:center;
-    background-color:blue;
-    color:white;
-    margin-left:5%;
-    padding:2% 4%;
+    text-align: center;
+    background-color: blue;
+    color: white;
+    margin-left: 5%;
+    padding: 2% 4%;
     font-weight: bold;
     font-size: large;
 }
-#SongControls{
+
+#SongControls {
     width: 100%
 }
-#SongControls ul{
+
+#SongControls ul {
     width: 100%;
 }
-#SongControls li{
+
+#SongControls li {
     width: 25%;
     text-align: center;
     display: block;
     font-size: 14px;
-    padding-right:3px;
-    padding-left:3px;
-    margin:0px;
-    float:left;
+    padding-right: 3px;
+    padding-left: 3px;
+    margin: 0px;
+    float: left;
 }
-#SongControls audio{
+
+#SongControls audio {
     width: 95%;
     justify-content: center;
     margin-left: auto;

@@ -1,53 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-     <title> Sign Up Page</title>
-     <link href= "css/index.css" rel = "stylesheet" type = "text/css" >
-     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src *;">
-     <!--<script src="https://www.gstatic.com/firebasejs/5.0.0/firebase.js"></script>-->
-     <meta>
-    </head>
-        <body>
-            <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
-            <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
-            <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-auth.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-storage.js"></script>
-            <div class="app">
-                <div id="deviceready" class="blink">
-                    <p class="event listening">Connecting to Device</p>
-                    <p class="event received">Device is Ready</p>
-                </div>
-            <div class = "nav">
-            <nav>
-                <div id="nav-bar-left">
-                    <a href="SearchPage.html"><img src="img/SearchIcon.png"></a>
-                </div>
-                <div id="Logo">
-                    <a href="index.html"><img src="img/LogoTransparent.png"></a> 
-                </div>
-                <div id="nav-bar-right">
-                    <a href="SignUp.html"><img src="img/PersonsIconReal.png"></a>
-                </div>
-                
-            </nav>
-        </div>
-           <br>
-            <div class="container">
-                <p>Email</p>
-                <input id= "txtEmail" type= "email" placeholder="Enter Email">
-                <p>Password</p>
-                <input id="txtPassword" type="password" placeholder="*****************">
-                <button id="btnLogIn">Log In</button>
-                <button id="btnSignUp">Sign Up</button>
-                <button id="btnLogOut">Log Out</button>
-                
-            </div>
-       
-        <!--<script src="../platforms/ios/platform_www/cordova.js"></script>-->
-        
-        <script src="js/index.js"></script>
-        </body>
-    </html>
 
+<head>
+    <title> Sign Up Page</title>
+    <link href="css/SignUp.css" rel="stylesheet" type="text/css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src *;">
+    <!--<script src="https://www.gstatic.com/firebasejs/5.0.0/firebase.js"></script>-->
+    <meta>
+</head>
+
+<body>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-storage.js"></script>
+
+    <div class="app">
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div>
+
+    <img src="img/UI/Front.png" id="Front">
+    <img src="img/UI/Frame.png" id="Frame">
+    <img src="img/Login/LoginScreen.png" id="Screen">
+    <img src="img/Login/LoginFrame.png" id="TopFrame">
+    <input type="text" id="Username" placeholder="Username">
+    <img src="img/Login/LoginFrame.png" id="BottomFrame">
+    <input type="text" id="Password" placeholder="Password">
+
+    <a href="index.html"><img src="img/Login/ButLog.png" id="ButLog"></a>
+    <a href="index.html"><img src="img/UI/ButCancel.png" id="ButCancel"></a>
+    <img src="img/UI/Vent.png" id="Vent">
+    <!--<script src="../platforms/ios/platform_www/cordova.js"></script>-->
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>

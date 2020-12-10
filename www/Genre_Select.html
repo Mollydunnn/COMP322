@@ -4,16 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://* data: wss://* 'unsafe-eval'; style-src 'self' 'unsafe-inline' *; script-src 'unsafe-inline' * ; media-src *; img-src * data: ; object-src data: 'unsafe-eval';">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/GenreSelect.css">
     <title>Genre Select</title>
-           
+
 </head>
 
 <body>
     <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
-            <!-- TODO: Add SDKs for Firebase products that you want to use
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
+<<<<<<< HEAD
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+    <script src="js/index.js"></script>
+
+    <div class="app">
+        <h1>Apache Cordova</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div>
+
+    <img src="img/UI/Front.png" id="Front">
+    <img src="img/UI/Frame.png" id="Frame">
+    <img src="img/Genre/GenreScreen.png" id="Screen">
+    <img src="img/Genre/Marquee.png" id="Marquee">
+    <img src="img/Genre/Hits.png" id="Hits">
+    <img src="img/Genre/Electro.png" id="Electro">
+    <img src="img/Genre/Disco.png" id="Disco">
+    <img src="img/Genre/Rap.png" id="Rap">
+    <img src="img/Genre/Country.png" id="Country">
+    <img src="img/Genre/Rock.png" id="Rock">
+    <a href="currentSong.html"><img src="img/UI/ButOkay.png" id="ButOkay"></a>
+    <a href="index.html"><img src="img/UI/ButCancel.png" id="ButCancel"></a>
+
+=======
             <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
             <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
             <script src="js/index.js"></script>
@@ -29,15 +56,18 @@
                 </div>
             </nav>
     <a href="index.html"><button class="fixbtn" type="button">&#x3c</button></a>
-    <div class="grid-container">
-        <button class="btn hits" type="button"><a href="SongLists.html">Top Hits</a></button>
-        <button class="btn hype" type="button">Electro Hype</button>
+    
+    <div class="grid-container" id="genre-btns-container">
+        <button class="btn hits" type="button" value="2" onclick="saveID()"><a href="SongLists.html">Top Hits</a></button>
+        <button class="btn hype" type="button" value="1" onclick="saveID()"><a href="SongLists.html">Electro Hype</button>
         <button class="btn thro" type="button">70's Throwback</button>
-        <button class="btn rap" type="button">Rap Rundown</button>
+        <button class="btn rap" type="button" value="3" onclick="saveID()"><a href="SongLists.html">Rap Rundown</button>
         <button class="btn rock" type="button">Hard Rock</button>
         <button class="btn ctry" type="button">Country Thunder</button>
     </div>
+
     <div class="fixed bottom">Choose Your Groove</div>
+>>>>>>> 7d111a8756a0af1778756160f22fac588dc58811
 </body>
 
 </html>
