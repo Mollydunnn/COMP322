@@ -48,7 +48,6 @@ body {
     left: 23.611%;
     height: 4.6875%;
     width: 52.778%;
-
     border: none;
     background-color: #FFF7DF;
     color: #946E30;
@@ -61,7 +60,6 @@ body {
     left: 23.611%;
     height: 4.6875%;
     width: 52.778%;
-
     border: none;
     background-color: #FFF7DF;
     color: #946E30;
@@ -71,7 +69,15 @@ body {
 #ButLog {
     position: fixed;
     top: 53.125%;
-    left: 27.778%;
+    left: 25%;
+    height: 6.25%;
+    width: 16.667%;
+}
+
+#ButSign {
+    position: fixed;
+    top: 53.125%;
+    left: 41.667%;
     height: 6.25%;
     width: 16.667%;
 }
@@ -79,7 +85,7 @@ body {
 #ButCancel {
     position: fixed;
     top: 53.125%;
-    left: 55.556%;
+    left: 58.333%;
     height: 6.25%;
     width: 16.667%;
 }
@@ -93,5 +99,5 @@ body {
 }
 
 ::placeholder {
-  color: #946E30;
+    color: #946E30;
 }
