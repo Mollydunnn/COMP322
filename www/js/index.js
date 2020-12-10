@@ -42,11 +42,11 @@ function onDeviceReady() {
     //const database = firebase.database();
     //const rootRef = firebase.database().ref();
     const storageRef = firebase.storage().ref();
-    const txtEmail = document.getElementById('txtEmail');
-    const txtPassword = document.getElementById('txtPassword');
-    const btnLogIn = document.getElementById('btnLogIn');
-    const btnSignUp = document.getElementById('btnSignUp');
-    const btnLogOut = document.getElementById('btnLogOut');
+    const txtEmail = document.getElementById('Username');
+    const txtPassword = document.getElementById('Password');
+    const btnLogIn = document.getElementById('ButLogin');
+    const btnSignUp = document.getElementById('ButSign');
+    const btnLogOut = document.getElementById('Exit');
     const btnSavedPlaylist = document.getElementById('btnSavedPlaylist');
     //------------------------------------------------user authentication stuff-Jaimie
     //here(all below are user authentication functions)
@@ -56,8 +56,8 @@ function onDeviceReady() {
         const auth = firebase.auth();
         const promise = auth.signInWithEmailAndPassword(email, password);
         //promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
-        document.getElementById('txtEmail').value = '';
-        document.getElementById('txtPassword').value = '';
+        document.getElementById('Username').value = '';
+        document.getElementById('Password').value = '';
     });
 
     btnSignUp.addEventListener('click', e => {
@@ -66,8 +66,8 @@ function onDeviceReady() {
         const auth = firebase.auth();
         const promise = auth.createUserWithEmailAndPassword(email, password); //send it off to firebase authentication
         //promise.catch(e => console.log(e.message));//if there is a user it'll log it in, if not we catch the error here
-        document.getElementById('txtEmail').value = '';
-        document.getElementById('txtPassword').value = '';
+        document.getElementById('Username').value = '';
+        document.getElementById('Password').value = '';
     });
 
     btnLogOut.addEventListener('click', e => {
@@ -78,17 +78,17 @@ function onDeviceReady() {
         if (firebaseUser) {
             console.log(firebaseUser);
             //hide sign up and log in button here
-            btnLogOut.style.display = "block";
-            btnSignUp.style.display = "none";
-            btnLogIn.style.display = "none";
+            //btnLogOut.style.display = "block";
+            //btnSignUp.style.display = "none";
+            //btnLogIn.style.display = "none";
             //show the saved playlist button
-            btnSavedPlaylist.style.display = "block";
+            //btnSavedPlaylist.style.display = "block";
             console.log("User is logged in successfully.");
         } else {
-            btnLogOut.style.display = "none";
-            btnSignUp.style.display = "block";
-            btnLogIn.style.display = "block";
-            btnSavedPlaylist.style.display = "none";
+            //btnLogOut.style.display = "none";
+            //btnSignUp.style.display = "block";
+            //btnLogIn.style.display = "block";
+            //btnSavedPlaylist.style.display = "none";
             //hide logout button here
             console.log("User is not logged in.");
         }
