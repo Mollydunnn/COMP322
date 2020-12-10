@@ -40,7 +40,6 @@
 }*/
 
 .app {
-    background-color: black;
 }
 
 body {
@@ -133,6 +132,7 @@ nav a{
     width: 55.556%;
 }
 
+
 #ButGen {
     position: fixed;
     top: 43.75%;
@@ -157,13 +157,7 @@ nav a{
     width: 55.556%;
 }
 
-#Exit {
-    position: fixed;
-    top: 90.625%;
-    left: 83.333%;
-    width: 16.667%;
-    height: 9.375%;
-}
+
 
 
 /* Landscape layout (with min-width) 

@@ -80,10 +80,9 @@
                 let answers= getSearchResults(search, playlist);
                 document.write("<h1>Search:</h1>");
                 document.write(search + "<br><br>");
-                let answer = JSON.parse(answers[0]); 
-                let id = answers[1]; 
-                document.write(answer + "\t\t"); //I want it to write the answer from my function
-                document.write(id + "\t\t");
+                //let answer = JSON.parse(answers[0]); 
+                //let id = answers[1]; 
+                document.write(answers + "\t\t"); //I want it to write the answer from my function
                 document.write("<a href='SongLists.html'><button onclick=button onclick=\"saveID('1')\">See Songs</button></a>");
             }
             </script>
