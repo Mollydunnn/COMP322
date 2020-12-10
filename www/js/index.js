@@ -130,41 +130,15 @@ function startTimer(duration, display) {
 //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
 */
 
-/*
-//This function is for fetching the PopPlaylist and its associated songs
-function getPopPlaylist() {
-    var ref = firebase.database().ref("PopPlaylist").orderByKey();
-    ref.once("value").then(function(snapshot) {
-        snapshot.forEach(function(childSnapshot) {
-            var song_name = childSnapshot.val().Name;
-            var artist_name = childSnapshot.val().Artist;
-            var image_str = childSnapshot.val().Image;
-            var mp3_str = childSnapshot.val().Song;
 
-            $("#song_name").append("<h3>"+song_name+"</h3>");
-            $("#artist_name").append("<p>"+artist_name+"</p>");
-            $("#image_str").append("<img src='songs/"+image_str+"'>");
-            $("#mp3_str").append("<button onclick='playAudio('songs/"+mp3_str+"'>></button>");
-        });
-    });
+// Function to get a playlist based on the button clicked, using the ID number
+function saveID() {
+    var id_number = this.value;
+    localStorage["key"] = id_number;
 }
 
-function displaySongs() {
-    var songsRef = firebase.database().ref('PopPlaylist/');
-    songsRef.on("value", function(data) {
-        var playlist_name = data.val().Name;
-        var child = data.val().child();
-        console.log("Playlist Name: "+playlist_name);
-        console.log("Song Name: "+child.Name);
-        console.log("Artist Name: "+child.Artist);
-        console.log("Image String: "+child.Image);
-        console.log("MP3 String: "+child.Song);
-    });
-} */
-
-//BrandProfile = list of brands (equivalent to 'Playlists')
-//BrandProfile[i] would be each playlist, child of this would be songs of playlists
-function getSongs_PopPlaylist(Playlist) {
+// Function to get the songs associated with a given playlist
+function getSongs(Playlist) {
     console.log(typeof(Playlist)); //Playlist represents specific playlist
     console.log(typeof(Playlist.Name));
     let doc = document.getElementById('songs-list-container');

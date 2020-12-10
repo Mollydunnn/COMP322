@@ -29,14 +29,16 @@
                 </div>
             </nav>
     <a href="index.html"><button class="fixbtn" type="button">&#x3c</button></a>
-    <div class="grid-container">
-        <button class="btn hits" type="button"><a href="SongLists.html">Top Hits</a></button>
-        <button class="btn hype" type="button">Electro Hype</button>
+    
+    <div class="grid-container" id="genre-btns-container">
+        <button class="btn hits" type="button" value="2" onclick="saveID()"><a href="SongLists.html">Top Hits</a></button>
+        <button class="btn hype" type="button" value="1" onclick="saveID()"><a href="SongLists.html">Electro Hype</button>
         <button class="btn thro" type="button">70's Throwback</button>
-        <button class="btn rap" type="button">Rap Rundown</button>
+        <button class="btn rap" type="button" value="3" onclick="saveID()"><a href="SongLists.html">Rap Rundown</button>
         <button class="btn rock" type="button">Hard Rock</button>
         <button class="btn ctry" type="button">Country Thunder</button>
     </div>
+
     <div class="fixed bottom">Choose Your Groove</div>
 </body>
 

@@ -104,14 +104,29 @@
         sound.play();
     }
 
-    var ref = firebase.database().ref("Playlists/PopPlaylist"); //Database not defined
+    id_number = localStorage["key"];
+    var ref = firebase.database().ref("Playlists");
+    ref.once('value').then((snapshot) => {
+        snapshot.forEach(function(childSnapshot) {
+            if (id_number===childSnapshot.val().ID) {
+                let Playlist = childSnapshot;
+            }
+        })
+    Playlist = Object.values(Playlist);
+    console.log(Playlist);
+    console.log(Playlist[0]);
+    getSongs(Playlist);
+    })
+
+    /*
     ref.once('value').then((snapshot) => {
         let Playlist = snapshot.val();
         Playlist = Object.values(Playlist);
         console.log(Playlist);
         console.log(Playlist[0]);
-        getSongs_PopPlaylist(Playlist);
+        getSongs(Playlist);
     })
+    */
 </script>
 
 <div class="Songs" id="songs-list-container">
