@@ -95,10 +95,25 @@ function onDeviceReady() {
     }); //for testing purposes(run in browser platform with dev tools for debug)
 
 
+<<<<<<< HEAD
     //THis is the the function to keep track of the users and to modify 
     //ensures the user is saved as a user when they sign up and confirms when they log in that they exist
 
 }());
+=======
+<<<<<<< HEAD
+
+// Function to get a playlist based on the button clicked, using the ID number
+function saveID() {
+    var id_number = this.value;
+    localStorage["key"] = id_number;
+}
+
+// Function to get the songs associated with a given playlist
+function getSongs(Playlist) {
+=======
+}()); 
+>>>>>>> 7d111a8756a0af1778756160f22fac588dc58811
 
 
 
@@ -106,6 +121,7 @@ function onDeviceReady() {
 //BrandProfile = list of brands (equivalent to 'Playlists')
 //BrandProfile[i] would be each playlist, child of this would be songs of playlists
 function getSongs_PopPlaylist(Playlist) {
+>>>>>>> 84bc1c3f1ffca31c21f933df23034f2b0319a7fb
     console.log(typeof(Playlist)); //Playlist represents specific playlist
     console.log(typeof(Playlist.Name));
     console.log(Playlist);
